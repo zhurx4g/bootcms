@@ -1,0 +1,32 @@
+#macro(pagination,$contextPath,$pageInfo)
+#if($pageInfo)
+<div class="pagination pagination-right">
+    <ul>
+#if($pageInfo.previous>0)
+        <li><a href="$!contextPath/${pageInfo.url}?page=$!{pageInfo.previous}">«</a></li>
+#else
+        <li class="disabled"><a href="#">«</a></li>
+#end
+#if($pageInfo.beforeDot)
+<li><a href="$!contextPath/${pageInfo.url}?page=1">1...</a></li>
+#end
+#foreach($page in $pageInfo.pageList)
+#if($page == $pageInfo.current)
+        <li class="active"><a href="#">$page</a></li>
+#else
+        <li><a href="$!contextPath/$!{pageInfo.url}?page=$!{page}">$page</a></li>
+#end
+#end
+#if($pageInfo.afterDot)
+<li><a href="$!contextPath/${pageInfo.url}?page=$!{pageInfo.last}">...$!{pageInfo.last}</a></li>
+#end
+#if($pageInfo.next>0)
+        <li><a href="$!contextPath/${pageInfo.url}?page=$!{pageInfo.next}">»</a></li>
+#else
+        <li class="disabled"><a href="#">»</a></li>
+#end
+	    <li><a style="color:#000000">共<strong style="color:red">$!{pageInfo.total}</strong>条记录</a></li>
+    </ul>
+</div>
+#end
+#end

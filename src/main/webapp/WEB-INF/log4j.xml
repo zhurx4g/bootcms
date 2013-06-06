@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="file" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/opt/tomcat-7.0.40/logs/bootstrap.log" />
+		<param name="DatePattern" value=".yyyyMMdd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%-5p %d{yyyy-MM-dd HH:mm:ss.SSS}] %l [%m]%n" />
+		</layout>
+	</appender>
+	<logger name="com.xiaomi" additivity="false">
+		<level value="${log4j_level}" />
+		<appender-ref ref="file" />
+	</logger>
+	<appender name="fails" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/opt/tomcat-7.0.40/logs/fails-send-info.log" />
+		<param name="DatePattern" value=".yyyyMMdd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}]\t%m%n" />
+		</layout>
+	</appender>
+	<logger name="send_info_fails" additivity="false">
+		<level value="info" />
+		<appender-ref ref="fails" />
+	</logger>
+</log4j:configuration>

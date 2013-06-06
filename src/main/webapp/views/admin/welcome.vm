@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Sticky footer &middot; Twitter Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<style type="text/css">
+        html,body {
+        font-size: 14px;
+		padding-top:20px;
+      }
+    </style>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="${contextPath}/${bootstrap_home}/css/bootstrap.css?ver=$revxxx$" />
+  </head>
+  <body>
+    <div id="wrap" class="container-fluid">
+		<div class="well" style="height:150px">
+		<p style="font-size:20px;">MIUI文件管理器</p>
+		</div>
+    </div>
+    <script src="${contextPath}/js/jquery-1.9.1.min.js"></script>
+    <script src="${contextPath}/${bootstrap_home}/js/bootstrap.js?ver=$revxxx$" type="text/javascript"></script>
+  </body>
+</html>
