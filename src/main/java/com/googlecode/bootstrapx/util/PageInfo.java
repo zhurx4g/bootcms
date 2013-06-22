@@ -42,10 +42,10 @@ public class PageInfo {
 		for(int i=startIndex;i<=endIndex;i++){
 			pageList.add(i);
 		}
-		
+
 		offset = (current-1)*size;
-		beforeDot = !pageList.contains(1);
-		afterDot = !pageList.contains(last);
+		beforeDot = pageList.size()>0&&!pageList.contains(1);
+		afterDot = pageList.size()>0&&!pageList.contains(last);
 	}
 
 	public static void main(String[] args) {

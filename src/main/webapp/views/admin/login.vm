@@ -54,7 +54,7 @@
 
     <div class="container">
 
-      <form class="form-signin" method="POST" action="${contextPath}/login.html">
+      <form class="form-signin" method="POST" action="${contextPath}/admin/login.html">
         <h2 class="form-signin-heading">请登录</h2>
         <input type="text" name="username" class="input-block-level" placeholder="用户名">
         <input type="password" name="password" class="input-block-level" placeholder="密码">

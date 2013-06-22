@@ -18,9 +18,10 @@ import com.googlecode.bootstrapx.model.User;
 import com.googlecode.bootstrapx.service.UserService;
 import com.googlecode.bootstrapx.util.CookieUtils;
 import com.googlecode.bootstrapx.util.CryptUtils;
+import com.googlecode.bootstrapx.util.SecurityUtils;
 
 @Path("admin")
-public class AdminLoginController {
+public class AdminLoginController extends AbstractController {
 	static final Logger LOGGER = LoggerFactory.getLogger(AdminLoginController.class);
 	
 	@Autowired
@@ -40,10 +41,12 @@ public class AdminLoginController {
 		
 		inv.addModel("contextPath", inv.getRequest().getContextPath());
 		User user = userService.getUserByName(username);
+		LOGGER.debug("user:" + user);
 		if(user == null){
 			inv.addModel("error", "用户名或密码错误");
 		}else{
 			LOGGER.debug("user name:" + user.getName());
+			password = SecurityUtils.password(password);
 			if(StringUtils.equals(password, user.getPassword())){
 				addLoginCookie(username, password, inv);
 				return "r:index.html";

@@ -19,7 +19,7 @@
   <body>
     <div id="wrap" class="container-fluid">
 		<div class="well" style="height:150px">
-		<p style="font-size:20px;">MIUI文件管理器</p>
+		<p style="font-size:20px;">$!C.name.value</p>
 		</div>
     </div>
     <script src="${contextPath}/js/jquery-1.9.1.min.js"></script>

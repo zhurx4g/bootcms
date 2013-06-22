@@ -19,7 +19,7 @@
   <body>
     <div id="wrap" class="container-fluid">
 		<div class="well" style="height:150px">
-		<h4>MIUI文件管理器</h4>
+		<h4>$!C.name.value</h4>
 		系统帮助
 		</div>
     </div>

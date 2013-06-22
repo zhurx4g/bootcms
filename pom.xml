@@ -17,26 +17,6 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>net.paoding</groupId>
-			<artifactId>paoding-rose</artifactId>
-			<version>1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>net.paoding</groupId>
-			<artifactId>paoding-rose-portal</artifactId>
-			<version>1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>net.paoding</groupId>
-			<artifactId>paoding-rose-scanning</artifactId>
-			<version>1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j13</artifactId>
-			<version>1.0.1</version>
-		</dependency>
-		<dependency>
 			<groupId>org.apache.velocity</groupId>
 			<artifactId>velocity</artifactId>
 			<version>1.7</version>
@@ -45,11 +25,6 @@
 			<groupId>org.apache.velocity</groupId>
 			<artifactId>velocity-tools</artifactId>
 			<version>2.0</version>
-		</dependency>
-		<dependency>
-			<groupId>apache-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>1.1.0.jboss</version>
 		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
@@ -76,11 +51,42 @@
 			<artifactId>spring-web</artifactId>
 			<version>3.1.2.RELEASE</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>3.1.2.RELEASE</version>
-		</dependency>
+        <dependency>  
+            <groupId>com.54chen</groupId>  
+            <artifactId>paoding-rose-scanning</artifactId>  
+            <version>1.0-SNAPSHOT</version>  
+        </dependency>  
+	<dependency>
+		<groupId>com.54chen</groupId>
+		<artifactId>paoding-rose</artifactId>
+		<version>1.0</version>
+		<exclusions>
+			<exclusion>
+				<artifactId>spring</artifactId>
+				<groupId>org.springframework</groupId>
+			</exclusion>
+			<exclusion>
+				<artifactId>spring-webmvc</artifactId>
+				<groupId>org.springframework</groupId>
+			</exclusion>
+		</exclusions>
+	</dependency> 
+        <dependency>  
+            <groupId>com.54chen</groupId>  
+            <artifactId>paoding-rose-portal</artifactId>  
+            <version>1.0</version>  
+        </dependency>  
+  
+        <dependency>  
+            <groupId>com.54chen</groupId>  
+            <artifactId>paoding-rose-jade</artifactId>  
+            <version>1.1</version>  
+        </dependency>  
+	<dependency>
+        <groupId>org.apache.thrift</groupId>
+        <artifactId>libthrift</artifactId>
+        <version>0.9.0</version>
+    </dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
@@ -102,16 +108,6 @@
 			<version>1.2.2</version>
 		</dependency>
 		<dependency>
-			<groupId>thrift</groupId>
-			<artifactId>libthrift</artifactId>
-			<version>0.5.0</version>
-		</dependency>
-		<dependency>
-			<groupId>zkclient</groupId>
-			<artifactId>zkclient</artifactId>
-			<version>0.2-SNAPSHOT</version>
-		</dependency>
-		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>1.3.2</version>
@@ -127,11 +123,6 @@
 			<version>1.9.10</version>
 		</dependency>
 		<dependency>
-			<groupId>apache-codec</groupId>
-			<artifactId>commons-codec</artifactId>
-			<version>1.2</version>
-		</dependency>
-		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.1</version>
@@ -145,6 +136,10 @@
 			<groupId>com.54chen</groupId>
 			<artifactId>paoding-rose-jade</artifactId>
 			<version>1.1</version>
+			<exclusions><exclusion>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring</artifactId>
+        </exclusion></exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.directory.studio</groupId>
@@ -167,16 +162,49 @@
 			<version>chargebee-1.0</version>
 		</dependency>
 		<dependency>
-			<groupId>com.xiaomi.miui.admin</groupId>
-			<artifactId>miui-common-admin-common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>com.54chen</groupId>
+			<artifactId>paoding-rose-scanning</artifactId>
+			<version>1.0</version>
 		</dependency>
 		<dependency>
-			<groupId>com.xiaomi.miui.spbook</groupId>
-			<artifactId>miui-spbook-common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>3.1.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>3.1.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>3.1.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-asm</artifactId>
+			<version>3.1.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>3.1.2.RELEASE</version>
 		</dependency>
 	</dependencies>
+    <distributionManagement>
+            <repository>
+                    <id>archiva.internal</id>
+                    <name>Internal Release Repository</name>
+                    <url>http://repos.d.xiaonei.com/nexus/content/repositories/releases/</url>
+            </repository>
+            <snapshotRepository>
+                    <id>archiva.snapshots</id>
+                    <name>Internal Snapshot Repository</name>
+                    <url>http://repos.d.xiaonei.com/nexus/content/repositories/snapshots/</url>
+            </snapshotRepository>
+    </distributionManagement>
+
 	<build>
 		<resources>
 			<resource>

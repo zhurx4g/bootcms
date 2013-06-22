@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>MIUI后台管理系统 - 小米</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<style type="text/css">
+        html,body {
+        font-size: 14px;
+		padding-top:20px;
+      }
+    </style>
+    <!-- CSS -->
+	<base href="${contextPath}/" />
+    <link rel="stylesheet" href="${bootstrap_home}/css/bootstrap.css?ver=$revxxx$" />
+  </head>
+  <body>
+    <div id="wrap" class="container-fluid" style="padding-left: 14px;padding-right: 14px;">
+		<ul class="breadcrumb">
+          <li><a href="#">首页</a> <span class="divider">/</span></li>
+          <li><a href="#">发布系统设置</a> <span class="divider">/</span></li>
+          <li class="active">用户管理</li>
+        </ul>
+		<div style="margin-bottom:16px">
+			<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#add">添加</button>&nbsp;&nbsp;
+		</div>
+		<table class="table" style="border: 1px solid #DDDDDD;">
+              <thead>
+                <tr>
+                  <th width="50px">序号</th>
+                  <th>用户名</th>
+                  <th>电子邮件</th>
+                  <th>创建时间</th>
+                  <th>更新时间</th>
+				  <th width="100px">操作</th>
+                </tr>
+              </thead>
+              <tbody>
+#foreach($user in $userList)
+                <tr>
+#set($indexNum=$velocityCount + $pageInfo.offset)
+                  <td>$!{indexNum}</td>
+                  <td>$!user.name</td>
+                  <td>$!user.email</td>
+                  <td>$!V.format($user.createTime)</td>
+                  <td>$!V.format($user.updateTime)</td>
+                  <td>
+					<a href="#edit" onclick="edit(this);return false;" data-url="common/user/get.do" data-param="{id:'$!user.id'}">编辑</a>
+				    <a href="#remove" onclick="remove(this);return false;" data-url="common/user/remove.do" data-param="{id:'$!user.id'}" data-title="用户名：$!user.name">删除</a>
+				  </td>
+                </tr>
+#end
+              </tbody>
+          </table>
+#pagination($contextPath, $pageInfo)
+    </div>
+    <div id="add" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">添加</h3>
+        </div>
+        <div class="modal-body">
+            <form id="add_form" action="common/user/add.do" method="POST">
+                <fieldset>
+                    <label><strong>用户名:</strong></label>
+                    <input type="text" id="add_name" name="name" placeholder="用户名…" style="width:520px" value="">
+                    <label><strong>电子邮件:</strong></label>
+                    <input type="text" id="add_email" name="email" placeholder="电子邮件…" style="width:520px" value="">
+                    <label><strong>初始密码:</strong></label>
+                    <input type="password" id="add_password" name="password" placeholder="初始密码…" style="width:520px" value="">
+                </fieldset>
+            </form>
+            <div id="add_message" class="alert alert-error" style="display:none">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+            <button class="btn btn-primary" onclick="ajaxSubmit('#add_form','#add_message');">添加</button>
+        </div>
+    </div>
+    <div id="edit" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">编辑</h3>
+        </div>
+        <div class="modal-body">
+            <form id="edit_form" action="common/user/edit.do" method="POST">
+                <fieldset>
+                    <input type="hidden" id="edit_id" name="id" placeholder="id…" style="width:520px" value="">
+                    <label><strong>用户名:</strong></label>
+                    <input type="text" id="edit_name" name="name" placeholder="name…" style="width:520px" value="" disabled="disabled">
+                    <label><strong>电子邮件:</strong></label>
+                    <input type="text" id="edit_email" name="email" placeholder="email…" style="width:520px" value="" disabled="disabled">
+                    <label><strong>重置密码:</strong></label>
+                    <input type="password" id="edit_password" name="password" placeholder="重置密码…" style="width:520px" value="">
+                </fieldset>
+            </form>
+			<div id="edit_message" class="alert alert-error" style="display:none">
+				<strong>错误:</strong>添加失败!请检查参数！
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+            <button class="btn btn-primary" onclick="ajaxSubmit('#edit_form','#edit_message');">保存</button>
+        </div>
+    </div>
+	
+    <div id="remove" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">确定删除</h3>
+        </div>
+        <div class="modal-body">
+            <p>确定删除这行记录: <label id="remove_title"></label></p>
+    		<form id="remove_form" action="common/user/remove.do" method="POST">
+                <fieldset>
+                    <input type="hidden" id="remove_id" name="id" placeholder="id…" value="">
+                </fieldset>
+            </form>
+    		<div id="remove_message" class="alert alert-error" style="display:none">
+    			<strong>错误:</strong>添加失败!请检查参数！
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+            <button class="btn btn-danger" onclick="ajaxSubmit('#remove_form','#remove_message')">删除</button>
+        </div>
+    </div>
+#parse("views/inc/js.vm")
+  </body>
+</html>

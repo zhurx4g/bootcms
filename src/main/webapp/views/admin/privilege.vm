@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>MIUI后台管理系统 - 小米</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<style type="text/css">
+        html,body {
+        font-size: 14px;
+		padding-top:20px;
+      }
+    </style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="${contextPath}/${bootstrap_home}/css/bootstrap.css?ver=$revxxx$" />
+  </head>
+  <body>
+    <div id="wrap" class="container-fluid" style="padding-left: 14px;padding-right: 14px;">
+		<ul class="breadcrumb">
+          <li><a href="#">首页</a> <span class="divider">/</span></li>
+          <li><a href="#">发布系统设置</a> <span class="divider">/</span></li>
+          <li class="active">权限管理</li>
+        </ul>
+		<div style="margin-bottom:16px">
+			<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#add">添加</button>&nbsp;&nbsp;
+		</div>
+		<table class="table" style="border: 1px solid #DDDDDD;">
+              <thead>
+                <tr>
+                  <th width="50px">序号</th>
+                  <th>根节点</th>
+                  <th>名字</th>
+                  <th>链接</th>
+                  <th>创建时间</th>
+                  <th>更新时间</th>
+				  <th width="100px">操作</th>
+                </tr>
+              </thead>
+              <tbody>
+#foreach($privilege in $privilegeList)
+                <tr #if($!privilege.parentId==0)class="info"#end>
+                  <td>$velocityCount</td>
+                  <td>#if($!privilege.parentId==0) $!{privilege.name} #end</td>
+                  <td>$!privilege.name</td>
+                  <td>$!privilege.link</td>
+                  <td>$V.format($privilege.createTime)</td>
+                  <td>$V.format($privilege.updateTime)</td>
+                  <td>
+					<a href="#edit" onclick="edit(this);return false;" data-url="${contextPath}/admin/privilege/get.do" data-param="{id:'$!privilege.id'}">编辑</a>
+				    <a href="#remove" onclick="remove(this);return false;" data-url="${contextPath}/admin/privilege/remove.do" data-param="{id:'$!privilege.id'}" data-title="--请替换此删除提示!--">删除</a>
+				  </td>
+                </tr>
+#end
+              </tbody>
+          </table>
+    </div>
+    <div id="add" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">添加</h3>
+        </div>
+        <div class="modal-body">
+            <form id="add_form" action="${contextPath}/admin/privilege/add.do" method="POST">
+                <fieldset>
+                    <label><strong>父权限节点:</strong></label>
+					<select id="add_parentId" name="parentId">
+						<option value="0">根节点</option>
+#foreach($privilege in $privilegeRootList)
+						<option value="$!{privilege.id}">$!{privilege.name}</option>
+#end
+                    </select>
+                    <label><strong>名字:</strong></label>
+                    <input type="text" id="add_name" name="name" placeholder="name…" style="width:520px" value="">
+                    <label><strong>链接:</strong></label>
+                    <input type="text" id="add_link" name="link" placeholder="link…" style="width:520px" value="">
+                </fieldset>
+            </form>
+            <div id="add_message" class="alert alert-error" style="display:none">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+            <button class="btn btn-primary" onclick="ajaxSubmit('#add_form','#add_message');">添加</button>
+        </div>
+    </div>
+    <div id="edit" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">编辑</h3>
+        </div>
+        <div class="modal-body">
+            <form id="edit_form" action="${contextPath}/admin/privilege/edit.do" method="POST">
+                <fieldset>
+					<input type="hidden" id="edit_id" name="id" placeholder="id…" value="">
+                    <label><strong>父权限节点:</strong></label>
+					<select id="edit_parentId" name="parentId">
+						<option value="0">根节点</option>
+#foreach($privilege in $privilegeRootList)
+						<option value="$!{privilege.id}">$!{privilege.name}</option>
+#end
+                    </select>
+                    <label><strong>名字:</strong></label>
+                    <input type="text" id="edit_name" name="name" placeholder="name…" style="width:520px" value="">
+                    <label><strong>链接:</strong></label>
+                    <input type="text" id="edit_link" name="link" placeholder="link…" style="width:520px" value="">
+                </fieldset>
+            </form>
+			<div id="edit_message" class="alert alert-error" style="display:none">
+				<strong>错误:</strong>添加失败!请检查参数！
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+            <button class="btn btn-primary" onclick="ajaxSubmit('#edit_form','#edit_message');">保存</button>
+        </div>
+    </div>
+	
+    <div id="remove" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">确定删除</h3>
+        </div>
+        <div class="modal-body">
+            <p>确定删除这行记录: <label id="remove_title"></label></p>
+    		<form id="remove_form" action="${contextPath}/admin/privilege/remove.do" method="POST">
+                <fieldset>
+                    <input type="hidden" id="remove_id" name="id" placeholder="id…" value="">
+                </fieldset>
+            </form>
+    		<div id="remove_message" class="alert alert-error" style="display:none">
+    			<strong>错误:</strong>添加失败!请检查参数！
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+            <button class="btn btn-danger" onclick="ajaxSubmit('#remove_form','#remove_message')">删除</button>
+        </div>
+    </div>
+#parse("views/inc/js.vm")
+  </body>
+</html>

@@ -8,18 +8,37 @@ struct Config {
     5: i32 order;
 }
 
-struct Nav {
-    1: i32 status;
-    2: i64 createTime;
-    3: i32 creatorId;
-    4: i64 updateTime;
-    5: i32 updaterId;
-    6: i32 weight;
-    7: i32 order;
-    8: i32 id;
-    9: i32 pid;
-    10: string name;
-    11: string link;
-    12: string tips;
-    13: string description;
+struct Category {
+    1: i32 id;
+    2: i32 parentId;
+    3: string name;
+    4: i32 sequence;
+    5: i32 weight;
+    6: string icon;
+    7: string image;
+    8: string description;
+    9: i32 creatorId = 0;
+    10: i32 updaterId = 0;
+    11: i64 createTime = 0;
+    12: i64 updateTime = 0;
+    13: string link = '';
+    14: i64 templateId = 0;
+    15: i32 status = 1;
+}
+
+struct Navigate {
+    1: i32 id;
+    2: i32 parentId;
+    3: string name;
+    4: i32 sequence;
+    5: i32 weight;
+    6: string icon;
+    7: string image;
+    8: string description;
+    9: i32 creatorId = 0;
+    10: i32 updaterId = 0;
+    11: i64 createTime = 0;
+    12: i64 updateTime = 0;
+    13: string link = '';
+    14: i32 status = 1;
 }

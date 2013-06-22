@@ -19,7 +19,7 @@ import com.googlecode.bootstrapx.model.Config;
 import com.googlecode.bootstrapx.service.ConfigService;
 
 @Path("admin/config")
-public class AdminConfigController extends AbstractController {
+public class AdminConfigController extends AdminCommonController {
 	@Autowired
 	private ConfigService configService;
 
@@ -28,7 +28,7 @@ public class AdminConfigController extends AbstractController {
 		List<Config> configList = configService.getConfigList(page, 20);
 		
 		inv.addModel("configList", configList);
-		return "admin/config/list";
+		return "admin/config";
 	}
 
 	@Post("add.do")
@@ -37,8 +37,13 @@ public class AdminConfigController extends AbstractController {
 		JSONObject resultJson = new JSONObject();
 		try{
 			int rows = configService.add(config);
-			P(resultJson, RESULT, OK);
-			P(resultJson, MSG, "添加成功");
+			if(rows>0){
+				P(resultJson, RESULT, OK);
+				P(resultJson, MSG, "添加成功");
+			}else{
+				P(resultJson, RESULT, NG);
+				P(resultJson, MSG, "添加失败");
+			}
 		}catch(Exception e){
 			LOGGER.error("", e);
 			P(resultJson, RESULT, NG);
@@ -50,16 +55,44 @@ public class AdminConfigController extends AbstractController {
 	@HttpFeatures(contentType = "application/json", charset = "UTF-8")
 	public JSONObject edit(Config config){
 		JSONObject resultJson = new JSONObject();
-		P(resultJson, RESULT, OK);
-		P(resultJson, MSG, "保存成功");
+		
+		try{
+			int rows = configService.update(config);
+			
+			if(rows>0){
+				P(resultJson, RESULT, OK);
+				P(resultJson, MSG, "更新成功");
+			}else{
+				P(resultJson, RESULT, NG);
+				P(resultJson, MSG, "更新失败");
+			}
+		}catch(Exception e){
+			LOGGER.error("", e);
+			P(resultJson, RESULT, NG);
+			P(resultJson, MSG, "更新失败");
+		}
 		return resultJson;
 	}
 	@Post("remove.do")
 	@HttpFeatures(contentType = "application/json", charset = "UTF-8")
-	public JSONObject remove(Config config){
+	public JSONObject remove(@Param("key") String key){
 		JSONObject resultJson = new JSONObject();
-		P(resultJson, RESULT, OK);
-		P(resultJson, MSG, "删除成功");
+		
+		try{
+			int rows = configService.remove(key);
+			
+			if(rows>0){
+				P(resultJson, RESULT, OK);
+				P(resultJson, MSG, "更新成功");
+			}else{
+				P(resultJson, RESULT, NG);
+				P(resultJson, MSG, "更新失败");
+			}
+		}catch(Exception e){
+			LOGGER.error("", e);
+			P(resultJson, RESULT, NG);
+			P(resultJson, MSG, "更新失败");
+		}
 		return resultJson;
 	}
 

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.googlecode.bootstrapx.dao.ConfigDAO;
 import com.googlecode.bootstrapx.model.Config;
+import com.googlecode.bootstrapx.model.Navigate;
 
 @Service
 public class ConfigService {
@@ -41,5 +42,13 @@ public class ConfigService {
 	
 	public Config getConfigByKey(String key){
 		return configDao.getConfigByKey(key);
+	}
+	
+	public int remove(String key){
+		return configDao.remove(key);
+	}
+	
+	public int update(Config config){
+		return configDao.update(config);
 	}
 }

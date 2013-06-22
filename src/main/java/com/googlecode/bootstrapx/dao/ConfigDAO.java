@@ -21,4 +21,10 @@ public interface ConfigDAO {
 
 	@SQL("select "+ COLUMNS +" from " + TABLE_NAME + " where `key`=:key")
 	public Config getConfigByKey(@SQLParam("key") String key);
+	
+	@SQL("update " + TABLE_NAME +" set value=:config.value,name=:config.name,description=:config.description,`order`=:config.order where `key`=:config.key")
+	public int update(@SQLParam("config") Config config);
+	
+	@SQL("delete from " + TABLE_NAME +" where `key`=:key")
+	public int remove(@SQLParam("key") String key);
 }

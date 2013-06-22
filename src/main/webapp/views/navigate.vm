@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+#parse("views/inc/header.vm")
+    <body>
+        <!-- Part 1: Wrap all page content here -->
+        <div id="wrap" class="container-fluid">
+#parse("views/inc/nav.vm")
+			<div class="row-fluid" style="height:60px;"></div>
+            <hr/>
+#set($leapCount = 0)
+#foreach($subSystem in $subSystemList)
+#if($velocityCount%4 == 1)
+<div class="row-fluid">
+#end
+				<div class="span3" style="text-align: center;">
+                    <a href="index.html?id=$!{subSystem.id}" title="点击直接进入 &raquo;">
+						<img src="$!{subSystem.image}" class="img-circle" alt="$!{subSystem.name}" style="width: 140px; height: 140px;margin-bottom:10px;">
+					</a>
+    				<a href="index.html?id=$!{subSystem.id}" title="点击直接进入 &raquo;"><h2>$!{subSystem.name}</h2></a>
+                </div>
+#if($velocityCount%4 == 0)
+            </div>
+            <hr/>
+#end
+#set($leapCount = $velocityCount)
+#end
+#if($leapCount%4 != 0)
+        </div>
+        <hr/>
+#end
+        </div><!-- /wapper -->
+#parse("views/inc/footer.vm")
+#parse("views/inc/js.vm")
+        <script>
+            jQuery(document).ready(function(){
+                jQuery("#mainArea").css("height",$(window).height()-80);
+                jQuery("#leftArea").css("height",$(window).height()-140);//
+                jQuery("#centerArea").css("height",$(window).height()-140);
+                //jQuery(".tab-content").css("height",$(window).height()-175);
+            });
+            jQuery(window).bind('resize',function(){
+                jQuery("#mainArea").css("height",$(window).height()-80);
+                jQuery("#leftArea").css("height",$(window).height()-140);//
+                jQuery("#centerArea").css("height",$(window).height()-140);
+                //jQuery(".tab-content").css("height",$(window).height()-175);
+            });
+            function onNav(node){
+                jQuery('#leftArea li').removeClass("active");
+                jQuery(node).parent().addClass("active");
+            }
+        </script>
+    </body>
+</html>

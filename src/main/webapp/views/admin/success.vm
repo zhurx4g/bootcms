@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="refresh" content="0;url=$!{contextPath}/index.html">
+<style type="text/css">
+	body{padding-top:60px;min-width:1024px;}
+    .nav-container{padding: 19px 0;}
+	#footer{text-align:center;border-top:solid 1px rgba(0, 0, 0, 0.05);}
+    .nav-collapse{float:right;}
+    .thumbnail .pic{float:left;margin-right:20px;}
+    .thumbnail .detail{overflow:hidden;zoom:1;}
+    .center {text-align:center;}
+</style>
+<base href="/" />
+  </head>
+  <body>
+	登陆成功<a href="$!{contextPath}/index.html" target="_self">点击跳转</a>
+  </body>
+</html>
