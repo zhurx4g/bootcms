@@ -29,11 +29,11 @@
               <thead>
                 <tr>
                   <th width="50px">序号</th>
-                  <th>key</th>
-                  <th>value</th>
-                  <th>name</th>
-                  <th>description</th>
-                  <th>order</th>
+                  <th>键</th>
+                  <th>值</th>
+                  <th>名字</th>
+                  <th>描述</th>
+                  <th>顺序</th>
 				  <th width="100px">操作</th>
                 </tr>
               </thead>
@@ -65,15 +65,15 @@
         <div class="modal-body">
             <form id="add_form" action="${contextPath}/admin/config/add.do" method="POST">
                 <fieldset>
-                    <label><strong>key:</strong></label>
+                    <label><strong>键:</strong></label>
                     <input type="text" id="edit_key" name="key" placeholder="key…" style="width:520px" value="">
-                    <label><strong>value:</strong></label>
+                    <label><strong>值:</strong></label>
                     <input type="text" id="edit_value" name="value" placeholder="value…" style="width:520px" value="">
-                    <label><strong>name:</strong></label>
+                    <label><strong>名字:</strong></label>
                     <input type="text" id="edit_name" name="name" placeholder="name…" style="width:520px" value="">
-                    <label><strong>description:</strong></label>
+                    <label><strong>描述:</strong></label>
                     <input type="text" id="edit_description" name="description" placeholder="description…" style="width:520px" value="">
-                    <label><strong>order:</strong></label>
+                    <label><strong>顺序:</strong></label>
                     <input type="text" id="edit_order" name="order" placeholder="order…" style="width:520px" value="">
                 </fieldset>
             </form>
@@ -93,15 +93,15 @@
         <div class="modal-body">
             <form id="edit_form" action="${contextPath}/admin/config/edit.do" method="POST">
                 <fieldset>
-                    <label><strong>key:</strong></label>
+                    <label><strong>键:</strong></label>
                     <input type="text" id="edit_key" name="key" placeholder="key…" style="width:520px" value="" readonly="true">
-                    <label><strong>value:</strong></label>
+                    <label><strong>值:</strong></label>
                     <input type="text" id="edit_value" name="value" placeholder="value…" style="width:520px" value="">
-                    <label><strong>name:</strong></label>
+                    <label><strong>名字:</strong></label>
                     <input type="text" id="edit_name" name="name" placeholder="name…" style="width:520px" value="">
-                    <label><strong>description:</strong></label>
+                    <label><strong>描述:</strong></label>
                     <input type="text" id="edit_description" name="description" placeholder="description…" style="width:520px" value="">
-                    <label><strong>order:</strong></label>
+                    <label><strong>顺序:</strong></label>
                     <input type="text" id="edit_order" name="order" placeholder="order…" style="width:520px" value="">
                 </fieldset>
             </form>

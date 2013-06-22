@@ -1,3 +1,5 @@
+CREATE database `bootstrapx` CHARACTER SET 'utf8' COLLATE 'utf8_general_ci';
+use bootstrapx;
 CREATE  TABLE `bootstrapx`.`bootstrapx_config` (
   `key` VARCHAR(64) NOT NULL ,
   `value` VARCHAR(256) NULL ,
@@ -5,7 +7,8 @@ CREATE  TABLE `bootstrapx`.`bootstrapx_config` (
   `description` VARCHAR(512) NULL ,
   `order` INT NULL ,
   PRIMARY KEY (`key`) ,
-  UNIQUE INDEX `key_UNIQUE` (`key` ASC) );
+  UNIQUE INDEX `key_UNIQUE` (`key` ASC) )
+engine=innodb default charset=utf8;
 
 
 create table `common_user`(
@@ -20,7 +23,8 @@ create table `common_user`(
 	`status`     int(10) unsigned not null default 1 comment ' 0: deleted，1: normal ',
 	primary key(`id`),
 	unique key(`email`)
-) engine=innodb default charset=utf8 COLLATE=utf8_bin;
+) engine=innodb default charset=utf8;
+insert into common_user values(null,'','rdadmin',md5('miuiadmin4rd'),0,0,0,0,1);
 
 create table `common_privilege`(
 	`id` int(10) unsigned  not null auto_increment ,
@@ -31,7 +35,7 @@ create table `common_privilege`(
 	`updateTime` bigint unsigned not null default 0,
 	`status`     int(10) unsigned not null default 1 comment ' 0: deleted，1: normal ',
 	primary key(`id`)
-) engine=innodb default charset=utf8 COLLATE=utf8_bin;
+) engine=innodb default charset=utf8;
 
 create table `common_user_privilege`(
 	`userId` int(10) unsigned  not null,
@@ -40,7 +44,7 @@ create table `common_user_privilege`(
 	`updateTime` bigint unsigned not null default 0,
 	`status`     int(10) unsigned not null default 1 comment ' 0: deleted，1: normal ',
 	primary key(`userId`,`privilegeId`)
-) engine=innodb default charset=utf8 COLLATE=utf8_bin;
+) engine=innodb default charset=utf8;
 
 DROP TABLE IF EXISTS `bootstrapx_category`;
 CREATE TABLE `bootstrapx_category` (
