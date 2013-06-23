@@ -26,26 +26,24 @@ import org.apache.thrift.meta_data.*;
 import org.apache.thrift.transport.*;
 import org.apache.thrift.protocol.*;
 
-public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Serializable, Cloneable {
-  private static final TStruct STRUCT_DESC = new TStruct("Navigate");
+public class FriendLink implements TBase<FriendLink, FriendLink._Fields>, java.io.Serializable, Cloneable {
+  private static final TStruct STRUCT_DESC = new TStruct("FriendLink");
 
   private static final TField ID_FIELD_DESC = new TField("id", TType.I32, (short)1);
-  private static final TField PARENT_ID_FIELD_DESC = new TField("parentId", TType.I32, (short)2);
-  private static final TField NAME_FIELD_DESC = new TField("name", TType.STRING, (short)3);
-  private static final TField SEQUENCE_FIELD_DESC = new TField("sequence", TType.I32, (short)4);
-  private static final TField WEIGHT_FIELD_DESC = new TField("weight", TType.I32, (short)5);
-  private static final TField ICON_FIELD_DESC = new TField("icon", TType.STRING, (short)6);
-  private static final TField IMAGE_FIELD_DESC = new TField("image", TType.STRING, (short)7);
-  private static final TField DESCRIPTION_FIELD_DESC = new TField("description", TType.STRING, (short)8);
-  private static final TField CREATOR_ID_FIELD_DESC = new TField("creatorId", TType.I32, (short)9);
-  private static final TField UPDATER_ID_FIELD_DESC = new TField("updaterId", TType.I32, (short)10);
-  private static final TField CREATE_TIME_FIELD_DESC = new TField("createTime", TType.I64, (short)11);
-  private static final TField UPDATE_TIME_FIELD_DESC = new TField("updateTime", TType.I64, (short)12);
-  private static final TField LINK_FIELD_DESC = new TField("link", TType.STRING, (short)13);
-  private static final TField STATUS_FIELD_DESC = new TField("status", TType.I32, (short)14);
+  private static final TField NAME_FIELD_DESC = new TField("name", TType.STRING, (short)2);
+  private static final TField SEQUENCE_FIELD_DESC = new TField("sequence", TType.I32, (short)3);
+  private static final TField WEIGHT_FIELD_DESC = new TField("weight", TType.I32, (short)4);
+  private static final TField ICON_FIELD_DESC = new TField("icon", TType.STRING, (short)5);
+  private static final TField IMAGE_FIELD_DESC = new TField("image", TType.STRING, (short)6);
+  private static final TField DESCRIPTION_FIELD_DESC = new TField("description", TType.STRING, (short)7);
+  private static final TField CREATOR_ID_FIELD_DESC = new TField("creatorId", TType.I32, (short)8);
+  private static final TField UPDATER_ID_FIELD_DESC = new TField("updaterId", TType.I32, (short)9);
+  private static final TField CREATE_TIME_FIELD_DESC = new TField("createTime", TType.I64, (short)10);
+  private static final TField UPDATE_TIME_FIELD_DESC = new TField("updateTime", TType.I64, (short)11);
+  private static final TField LINK_FIELD_DESC = new TField("link", TType.STRING, (short)12);
+  private static final TField STATUS_FIELD_DESC = new TField("status", TType.I32, (short)13);
 
   private int id;
-  private int parentId;
   private String name;
   private int sequence;
   private int weight;
@@ -62,19 +60,18 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
   /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
   public enum _Fields implements TFieldIdEnum {
     ID((short)1, "id"),
-    PARENT_ID((short)2, "parentId"),
-    NAME((short)3, "name"),
-    SEQUENCE((short)4, "sequence"),
-    WEIGHT((short)5, "weight"),
-    ICON((short)6, "icon"),
-    IMAGE((short)7, "image"),
-    DESCRIPTION((short)8, "description"),
-    CREATOR_ID((short)9, "creatorId"),
-    UPDATER_ID((short)10, "updaterId"),
-    CREATE_TIME((short)11, "createTime"),
-    UPDATE_TIME((short)12, "updateTime"),
-    LINK((short)13, "link"),
-    STATUS((short)14, "status");
+    NAME((short)2, "name"),
+    SEQUENCE((short)3, "sequence"),
+    WEIGHT((short)4, "weight"),
+    ICON((short)5, "icon"),
+    IMAGE((short)6, "image"),
+    DESCRIPTION((short)7, "description"),
+    CREATOR_ID((short)8, "creatorId"),
+    UPDATER_ID((short)9, "updaterId"),
+    CREATE_TIME((short)10, "createTime"),
+    UPDATE_TIME((short)11, "updateTime"),
+    LINK((short)12, "link"),
+    STATUS((short)13, "status");
 
     private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
 
@@ -91,31 +88,29 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
       switch(fieldId) {
         case 1: // ID
           return ID;
-        case 2: // PARENT_ID
-          return PARENT_ID;
-        case 3: // NAME
+        case 2: // NAME
           return NAME;
-        case 4: // SEQUENCE
+        case 3: // SEQUENCE
           return SEQUENCE;
-        case 5: // WEIGHT
+        case 4: // WEIGHT
           return WEIGHT;
-        case 6: // ICON
+        case 5: // ICON
           return ICON;
-        case 7: // IMAGE
+        case 6: // IMAGE
           return IMAGE;
-        case 8: // DESCRIPTION
+        case 7: // DESCRIPTION
           return DESCRIPTION;
-        case 9: // CREATOR_ID
+        case 8: // CREATOR_ID
           return CREATOR_ID;
-        case 10: // UPDATER_ID
+        case 9: // UPDATER_ID
           return UPDATER_ID;
-        case 11: // CREATE_TIME
+        case 10: // CREATE_TIME
           return CREATE_TIME;
-        case 12: // UPDATE_TIME
+        case 11: // UPDATE_TIME
           return UPDATE_TIME;
-        case 13: // LINK
+        case 12: // LINK
           return LINK;
-        case 14: // STATUS
+        case 13: // STATUS
           return STATUS;
         default:
           return null;
@@ -158,22 +153,19 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
 
   // isset id assignments
   private static final int __ID_ISSET_ID = 0;
-  private static final int __PARENTID_ISSET_ID = 1;
-  private static final int __SEQUENCE_ISSET_ID = 2;
-  private static final int __WEIGHT_ISSET_ID = 3;
-  private static final int __CREATORID_ISSET_ID = 4;
-  private static final int __UPDATERID_ISSET_ID = 5;
-  private static final int __CREATETIME_ISSET_ID = 6;
-  private static final int __UPDATETIME_ISSET_ID = 7;
-  private static final int __STATUS_ISSET_ID = 8;
-  private BitSet __isset_bit_vector = new BitSet(9);
+  private static final int __SEQUENCE_ISSET_ID = 1;
+  private static final int __WEIGHT_ISSET_ID = 2;
+  private static final int __CREATORID_ISSET_ID = 3;
+  private static final int __UPDATERID_ISSET_ID = 4;
+  private static final int __CREATETIME_ISSET_ID = 5;
+  private static final int __UPDATETIME_ISSET_ID = 6;
+  private static final int __STATUS_ISSET_ID = 7;
+  private BitSet __isset_bit_vector = new BitSet(8);
 
   public static final Map<_Fields, FieldMetaData> metaDataMap;
   static {
     Map<_Fields, FieldMetaData> tmpMap = new EnumMap<_Fields, FieldMetaData>(_Fields.class);
     tmpMap.put(_Fields.ID, new FieldMetaData("id", TFieldRequirementType.DEFAULT, 
-        new FieldValueMetaData(TType.I32)));
-    tmpMap.put(_Fields.PARENT_ID, new FieldMetaData("parentId", TFieldRequirementType.DEFAULT, 
         new FieldValueMetaData(TType.I32)));
     tmpMap.put(_Fields.NAME, new FieldMetaData("name", TFieldRequirementType.DEFAULT, 
         new FieldValueMetaData(TType.STRING)));
@@ -200,10 +192,10 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
     tmpMap.put(_Fields.STATUS, new FieldMetaData("status", TFieldRequirementType.DEFAULT, 
         new FieldValueMetaData(TType.I32)));
     metaDataMap = Collections.unmodifiableMap(tmpMap);
-    FieldMetaData.addStructMetaDataMap(Navigate.class, metaDataMap);
+    FieldMetaData.addStructMetaDataMap(FriendLink.class, metaDataMap);
   }
 
-  public Navigate() {
+  public FriendLink() {
     this.creatorId = 0;
 
     this.updaterId = 0;
@@ -218,9 +210,8 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
 
   }
 
-  public Navigate(
+  public FriendLink(
     int id,
-    int parentId,
     String name,
     int sequence,
     int weight,
@@ -237,8 +228,6 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
     this();
     this.id = id;
     setIdIsSet(true);
-    this.parentId = parentId;
-    setParentIdIsSet(true);
     this.name = name;
     this.sequence = sequence;
     setSequenceIsSet(true);
@@ -263,11 +252,10 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
   /**
    * Performs a deep copy on <i>other</i>.
    */
-  public Navigate(Navigate other) {
+  public FriendLink(FriendLink other) {
     __isset_bit_vector.clear();
     __isset_bit_vector.or(other.__isset_bit_vector);
     this.id = other.id;
-    this.parentId = other.parentId;
     if (other.isSetName()) {
       this.name = other.name;
     }
@@ -292,16 +280,14 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
     this.status = other.status;
   }
 
-  public Navigate deepCopy() {
-    return new Navigate(this);
+  public FriendLink deepCopy() {
+    return new FriendLink(this);
   }
 
   @Override
   public void clear() {
     setIdIsSet(false);
     this.id = 0;
-    setParentIdIsSet(false);
-    this.parentId = 0;
     this.name = null;
     setSequenceIsSet(false);
     this.sequence = 0;
@@ -344,28 +330,6 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
 
   public void setIdIsSet(boolean value) {
     __isset_bit_vector.set(__ID_ISSET_ID, value);
-  }
-
-  public int getParentId() {
-    return this.parentId;
-  }
-
-  public void setParentId(int parentId) {
-    this.parentId = parentId;
-    setParentIdIsSet(true);
-  }
-
-  public void unsetParentId() {
-    __isset_bit_vector.clear(__PARENTID_ISSET_ID);
-  }
-
-  /** Returns true if field parentId is set (has been asigned a value) and false otherwise */
-  public boolean isSetParentId() {
-    return __isset_bit_vector.get(__PARENTID_ISSET_ID);
-  }
-
-  public void setParentIdIsSet(boolean value) {
-    __isset_bit_vector.set(__PARENTID_ISSET_ID, value);
   }
 
   public String getName() {
@@ -647,14 +611,6 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
       }
       break;
 
-    case PARENT_ID:
-      if (value == null) {
-        unsetParentId();
-      } else {
-        setParentId((Integer)value);
-      }
-      break;
-
     case NAME:
       if (value == null) {
         unsetName();
@@ -759,9 +715,6 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
     case ID:
       return new Integer(getId());
 
-    case PARENT_ID:
-      return new Integer(getParentId());
-
     case NAME:
       return getName();
 
@@ -811,8 +764,6 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
     switch (field) {
     case ID:
       return isSetId();
-    case PARENT_ID:
-      return isSetParentId();
     case NAME:
       return isSetName();
     case SEQUENCE:
@@ -845,12 +796,12 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
   public boolean equals(Object that) {
     if (that == null)
       return false;
-    if (that instanceof Navigate)
-      return this.equals((Navigate)that);
+    if (that instanceof FriendLink)
+      return this.equals((FriendLink)that);
     return false;
   }
 
-  public boolean equals(Navigate that) {
+  public boolean equals(FriendLink that) {
     if (that == null)
       return false;
 
@@ -860,15 +811,6 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
       if (!(this_present_id && that_present_id))
         return false;
       if (this.id != that.id)
-        return false;
-    }
-
-    boolean this_present_parentId = true;
-    boolean that_present_parentId = true;
-    if (this_present_parentId || that_present_parentId) {
-      if (!(this_present_parentId && that_present_parentId))
-        return false;
-      if (this.parentId != that.parentId)
         return false;
     }
 
@@ -988,13 +930,13 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
     return 0;
   }
 
-  public int compareTo(Navigate other) {
+  public int compareTo(FriendLink other) {
     if (!getClass().equals(other.getClass())) {
       return getClass().getName().compareTo(other.getClass().getName());
     }
 
     int lastComparison = 0;
-    Navigate typedOther = (Navigate)other;
+    FriendLink typedOther = (FriendLink)other;
 
     lastComparison = Boolean.valueOf(isSetId()).compareTo(typedOther.isSetId());
     if (lastComparison != 0) {
@@ -1002,16 +944,6 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
     }
     if (isSetId()) {
       lastComparison = TBaseHelper.compareTo(this.id, typedOther.id);
-      if (lastComparison != 0) {
-        return lastComparison;
-      }
-    }
-    lastComparison = Boolean.valueOf(isSetParentId()).compareTo(typedOther.isSetParentId());
-    if (lastComparison != 0) {
-      return lastComparison;
-    }
-    if (isSetParentId()) {
-      lastComparison = TBaseHelper.compareTo(this.parentId, typedOther.parentId);
       if (lastComparison != 0) {
         return lastComparison;
       }
@@ -1161,22 +1093,14 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
             TProtocolUtil.skip(iprot, field.type);
           }
           break;
-        case 2: // PARENT_ID
-          if (field.type == TType.I32) {
-            this.parentId = iprot.readI32();
-            setParentIdIsSet(true);
-          } else { 
-            TProtocolUtil.skip(iprot, field.type);
-          }
-          break;
-        case 3: // NAME
+        case 2: // NAME
           if (field.type == TType.STRING) {
             this.name = iprot.readString();
           } else { 
             TProtocolUtil.skip(iprot, field.type);
           }
           break;
-        case 4: // SEQUENCE
+        case 3: // SEQUENCE
           if (field.type == TType.I32) {
             this.sequence = iprot.readI32();
             setSequenceIsSet(true);
@@ -1184,7 +1108,7 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
             TProtocolUtil.skip(iprot, field.type);
           }
           break;
-        case 5: // WEIGHT
+        case 4: // WEIGHT
           if (field.type == TType.I32) {
             this.weight = iprot.readI32();
             setWeightIsSet(true);
@@ -1192,28 +1116,28 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
             TProtocolUtil.skip(iprot, field.type);
           }
           break;
-        case 6: // ICON
+        case 5: // ICON
           if (field.type == TType.STRING) {
             this.icon = iprot.readString();
           } else { 
             TProtocolUtil.skip(iprot, field.type);
           }
           break;
-        case 7: // IMAGE
+        case 6: // IMAGE
           if (field.type == TType.STRING) {
             this.image = iprot.readString();
           } else { 
             TProtocolUtil.skip(iprot, field.type);
           }
           break;
-        case 8: // DESCRIPTION
+        case 7: // DESCRIPTION
           if (field.type == TType.STRING) {
             this.description = iprot.readString();
           } else { 
             TProtocolUtil.skip(iprot, field.type);
           }
           break;
-        case 9: // CREATOR_ID
+        case 8: // CREATOR_ID
           if (field.type == TType.I32) {
             this.creatorId = iprot.readI32();
             setCreatorIdIsSet(true);
@@ -1221,7 +1145,7 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
             TProtocolUtil.skip(iprot, field.type);
           }
           break;
-        case 10: // UPDATER_ID
+        case 9: // UPDATER_ID
           if (field.type == TType.I32) {
             this.updaterId = iprot.readI32();
             setUpdaterIdIsSet(true);
@@ -1229,7 +1153,7 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
             TProtocolUtil.skip(iprot, field.type);
           }
           break;
-        case 11: // CREATE_TIME
+        case 10: // CREATE_TIME
           if (field.type == TType.I64) {
             this.createTime = iprot.readI64();
             setCreateTimeIsSet(true);
@@ -1237,7 +1161,7 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
             TProtocolUtil.skip(iprot, field.type);
           }
           break;
-        case 12: // UPDATE_TIME
+        case 11: // UPDATE_TIME
           if (field.type == TType.I64) {
             this.updateTime = iprot.readI64();
             setUpdateTimeIsSet(true);
@@ -1245,14 +1169,14 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
             TProtocolUtil.skip(iprot, field.type);
           }
           break;
-        case 13: // LINK
+        case 12: // LINK
           if (field.type == TType.STRING) {
             this.link = iprot.readString();
           } else { 
             TProtocolUtil.skip(iprot, field.type);
           }
           break;
-        case 14: // STATUS
+        case 13: // STATUS
           if (field.type == TType.I32) {
             this.status = iprot.readI32();
             setStatusIsSet(true);
@@ -1275,9 +1199,6 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
     oprot.writeStructBegin(STRUCT_DESC);
     oprot.writeFieldBegin(ID_FIELD_DESC);
     oprot.writeI32(this.id);
-    oprot.writeFieldEnd();
-    oprot.writeFieldBegin(PARENT_ID_FIELD_DESC);
-    oprot.writeI32(this.parentId);
     oprot.writeFieldEnd();
     if (this.name != null) {
       oprot.writeFieldBegin(NAME_FIELD_DESC);
@@ -1331,15 +1252,11 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder("Navigate(");
+    StringBuilder sb = new StringBuilder("FriendLink(");
     boolean first = true;
 
     sb.append("id:");
     sb.append(this.id);
-    first = false;
-    if (!first) sb.append(", ");
-    sb.append("parentId:");
-    sb.append(this.parentId);
     first = false;
     if (!first) sb.append(", ");
     sb.append("name:");

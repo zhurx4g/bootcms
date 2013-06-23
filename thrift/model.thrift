@@ -42,3 +42,19 @@ struct Navigate {
     13: string link = '';
     14: i32 status = 1;
 }
+
+struct FriendLink {
+    1: i32 id;
+    2: string name;
+    3: i32 sequence;
+    4: i32 weight;
+    5: string icon;
+    6: string image;
+    7: string description;
+    8: i32 creatorId = 0;
+    9: i32 updaterId = 0;
+    10: i64 createTime = 0;
+    11: i64 updateTime = 0;
+    12: string link = '';
+    13: i32 status = 1;
+}

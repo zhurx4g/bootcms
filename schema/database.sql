@@ -84,3 +84,21 @@ CREATE TABLE `bootstrapx_navigate` (
   `status` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=99411210 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `bootstrapx_friendlink`;
+CREATE TABLE `bootstrapx_friendlink` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL,
+  `sequence` int(10) unsigned NOT NULL DEFAULT '0',
+  `weight` int(10) unsigned NOT NULL DEFAULT '0',
+  `icon` varchar(512) NOT NULL,
+  `image` varchar(512) NOT NULL,
+  `description` varchar(512) NOT NULL,
+  `creatorId` int(10) unsigned NOT NULL,
+  `updaterId` int(10) unsigned NOT NULL,
+  `createTime` datetime NOT NULL,
+  `updateTime` datetime NOT NULL,
+  `link` varchar(512) NOT NULL,
+  `status` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=99411210 DEFAULT CHARSET=utf8;

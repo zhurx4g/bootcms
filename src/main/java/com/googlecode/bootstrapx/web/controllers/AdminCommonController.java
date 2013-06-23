@@ -1,25 +1,13 @@
 package com.googlecode.bootstrapx.web.controllers;
 
 import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.googlecode.bootstrapx.annotation.LoginRequired;
 import com.googlecode.bootstrapx.model.OperateType;
-import com.googlecode.bootstrapx.service.ConfigService;
-import com.googlecode.bootstrapx.service.NavigateService;
-import com.googlecode.bootstrapx.service.SubSystemService;
 
 
 @LoginRequired
-public class AdminCommonController extends AbstractController {
-	@Autowired
-	protected SubSystemService subSystemService;
-
-	@Autowired
-	protected ConfigService configService;
-	
-	@Autowired
-	protected NavigateService navigateService;
+public class AdminCommonController extends CommonController {
 
 	protected JSONObject parseJSON(OperateType type, int rows){
 		JSONObject resultJson = new JSONObject();

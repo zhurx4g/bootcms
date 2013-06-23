@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.googlecode.bootstrapx.dao.ConfigDAO;
 import com.googlecode.bootstrapx.model.Config;
-import com.googlecode.bootstrapx.model.Navigate;
 
 @Service
 public class ConfigService {

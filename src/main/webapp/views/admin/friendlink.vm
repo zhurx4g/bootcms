@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>MIUI后台管理系统 - 小米</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<style type="text/css">
+        html,body {
+        font-size: 14px;
+		padding-top:20px;
+      }
+    </style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="${contextPath}/${bootstrap_home}/css/bootstrap.css?ver=$revxxx$" />
+  </head>
+  <body>
+    <div id="wrap" class="container-fluid" style="padding-left: 14px;padding-right: 14px;">
+		<ul class="breadcrumb">
+          <li><a href="#">首页</a> <span class="divider">/</span></li>
+          <li><a href="#">文件管理器</a> <span class="divider">/</span></li>
+          <li class="active">应用管理</li>
+        </ul>
+		<div style="margin-bottom:16px">
+			<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#add">添加</button>&nbsp;&nbsp;
+		</div>
+		<table class="table" style="border: 1px solid #DDDDDD;">
+              <thead>
+                <tr>
+                  <th width="50px">序号</th>
+                  <th>导航名字</th>
+                  <th>顺序</th>
+                  <th>描述</th>
+                  <th>链接</th>
+				  <th width="100px">操作</th>
+                </tr>
+              </thead>
+              <tbody>
+#foreach($friendlink in $friendlinkList)
+                <tr>
+#set($indexNum=$velocityCount + $pageInfo.offset)
+                  <td>${indexNum}</td>
+                  <td>$!friendlink.name</td>
+                  <td>$!friendlink.sequence</td>
+                  <td>$!friendlink.description</td>
+                  <td>$!friendlink.link</td>
+                  <td>
+					<a href="#edit" onclick="edit(this);return false;" data-url="${contextPath}/admin/friendlink/get.do" data-param="{id:'$!friendlink.id'}">编辑</a>
+				    <a href="#remove" onclick="remove(this);return false;" data-url="${contextPath}/admin/friendlink/remove.do" data-param="{id:'$!friendlink.id'}" data-title="$!friendlink.name">删除</a>
+				  </td>
+                </tr>
+#end
+              </tbody>
+          </table>
+#pagination($contextPath, $pageInfo)
+    </div>
+    <div id="add" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">添加</h3>
+        </div>
+        <div class="modal-body">
+            <form id="add_form" action="${contextPath}/admin/friendlink/add.do" method="POST">
+                <fieldset>
+                    <label><strong>导航名字:</strong></label>
+                    <input type="text" id="add_name" name="name" placeholder="导航名字…" style="width:520px" value="">
+                    <input type="hidden" id="add_weight" name="weight" placeholder="weight…" style="width:520px" value="">
+                    <input type="hidden" id="add_icon" name="icon" placeholder="icon…" style="width:520px" value="">
+                    <input type="hidden" id="add_image" name="image" placeholder="image…" style="width:520px" value="">
+                    <label><strong>描述:</strong></label>
+                    <input type="text" id="add_description" name="description" placeholder="描述…" style="width:520px" value="">
+                    <label><strong>链接地址:</strong></label>
+                    <input type="text" id="add_link" name="link" placeholder="链接…" style="width:520px" value="">
+                    <label><strong>顺序:</strong></label>
+                    <input type="text" id="add_sequence" name="sequence" placeholder="顺序…" style="width:520px" value="">
+                </fieldset>
+            </form>
+            <div id="add_message" class="alert alert-error" style="display:none">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+            <button class="btn btn-primary" onclick="ajaxSubmit('#add_form','#add_message');">添加</button>
+        </div>
+    </div>
+    <div id="edit" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">编辑</h3>
+        </div>
+        <div class="modal-body">
+            <form id="edit_form" action="${contextPath}/admin/friendlink/edit.do" method="POST">
+                <fieldset>
+	                <input type="hidden" id="edit_id" name="id" placeholder="id…" style="width:520px" value="">
+                    <label><strong>导航名字:</strong></label>
+                    <input type="text" id="edit_name" name="name" placeholder="导航名字…" style="width:520px" value="">
+                    <input type="hidden" id="edit_weight" name="weight" placeholder="weight…" style="width:520px" value="">
+                    <input type="hidden" id="edit_icon" name="icon" placeholder="icon…" style="width:520px" value="">
+                    <input type="hidden" id="edit_image" name="image" placeholder="image…" style="width:520px" value="">
+                    <label><strong>描述:</strong></label>
+                    <input type="text" id="edit_description" name="description" placeholder="描述…" style="width:520px" value="">
+                    <label><strong>链接地址:</strong></label>
+                    <input type="text" id="edit_link" name="link" placeholder="链接地址…" style="width:520px" value="">
+                    <label><strong>顺序:</strong></label>
+                    <input type="text" id="edit_sequence" name="sequence" placeholder="顺序…" style="width:520px" value="">
+                </fieldset>
+            </form>
+			<div id="edit_message" class="alert alert-error" style="display:none">
+				<strong>错误:</strong>添加失败!请检查参数！
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+            <button class="btn btn-primary" onclick="ajaxSubmit('#edit_form','#edit_message');">保存</button>
+        </div>
+    </div>
+	
+    <div id="remove" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">确定删除</h3>
+        </div>
+        <div class="modal-body">
+            <p>确定删除这行记录: <label id="remove_title"></label></p>
+    		<form id="remove_form" action="${contextPath}/admin/friendlink/remove.do" method="POST">
+                <fieldset>
+                    <input type="hidden" id="remove_id" name="id" placeholder="id…" value="">
+                </fieldset>
+            </form>
+    		<div id="remove_message" class="alert alert-error" style="display:none">
+    			<strong>错误:</strong>添加失败!请检查参数！
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+            <button class="btn btn-danger" onclick="ajaxSubmit('#remove_form','#remove_message')">删除</button>
+        </div>
+    </div>
+#parse("views/inc/progress.vm")
+#parse("views/inc/confirm.vm")
+#parse("views/inc/js.vm")
+  </body>
+</html>

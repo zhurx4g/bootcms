@@ -13,6 +13,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.app.VelocityEngine;
 import org.springframework.ui.velocity.VelocityEngineUtils;
 
+import com.googlecode.bootstrapx.model.FriendLink;
 import com.googlecode.bootstrapx.model.Navigate;
 
 public class CodeFactory {
@@ -60,6 +61,6 @@ public class CodeFactory {
 		for(int i=0;i<fields.length;i++,System.out.print(",")){
 			System.out.print(":navigate."+fields[i].getFieldName());
 		}
-		//generate(Navigate.class, Navigate.class, "admin",null);
+		generate(FriendLink.class, FriendLink.class, "admin",null);
 	}
 }

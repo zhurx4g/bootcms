@@ -6,6 +6,8 @@
 package com.googlecode.bootstrapx.model;
 
 
+import java.util.Map;
+import java.util.HashMap;
 import org.apache.thrift.TEnum;
 
 public enum OperateType implements TEnum {
