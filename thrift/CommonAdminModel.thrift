@@ -11,6 +11,12 @@ enum OperateType {
 	REMOVE = 2
 }
 
+enum Status {
+	DELETED = 0,
+	NORMAL = 1,
+	ALL = 2
+}
+
 struct User {
     1: i32 id;
     2: string email = '';

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.googlecode.bootstrapx.dao.NavigateDAO;
 import com.googlecode.bootstrapx.model.Navigate;
 import com.googlecode.bootstrapx.model.OrderBy;
+import com.googlecode.bootstrapx.model.Status;
 
 @Service
 public class NavigateService extends AbstraceService {
@@ -16,7 +17,19 @@ public class NavigateService extends AbstraceService {
 	@Autowired
 	private NavigateDAO navigateDAO;
 	
-	public List<Navigate> select(int page, int size, int status, String orderBy) {
+	public int getCount(Status status){
+		return getCount(0, status);
+	}
+	public int getCount(int parentId, Status status){
+		if(status==null)
+			status = Status.NORMAL;
+		return navigateDAO.getCount(parentId, status.getValue());
+	}
+
+	public List<Navigate> select(int page, int size, Status status, String orderBy) {
+		return select(-1,page,size,status,orderBy);
+	}
+	public List<Navigate> select(int parentId, int page, int size, Status status, String orderBy) {
 		Navigate._Fields field = Navigate._Fields.UPDATE_TIME;
 		OrderBy order = OrderBy.ASC;
     	if(StringUtils.isNotBlank(orderBy)){
@@ -39,23 +52,27 @@ public class NavigateService extends AbstraceService {
 		if(page<=0)
 			page = 1;
 		int offset = (page-1)*size;
-		return navigateDAO.select(offset, size,status, field.getFieldName()+ " " + String.valueOf(order));
-	}
 
-	public int add(Navigate navigate) {
-		return 0;
+		if(status==null)
+			status = Status.NORMAL;
+
+		return navigateDAO.select(parentId, offset, size,status.getValue(), field.getFieldName()+ " " + String.valueOf(order));
 	}
 
 	public int addForRows(Navigate navigate) {
-		return 0;
+		return navigateDAO.addForRows(navigate);
 	}
 
-	public int remove(String key) {
-		return 0;
+	public int add(Navigate navigate) {
+		return navigateDAO.add(navigate);
+	}
+
+	public int remove(int id) {
+		return navigateDAO.remove(id);
 	}
 
 	public Navigate get(int id) {
-		return null;
+		return navigateDAO.get(id);
 	}
 
 	public int update(Navigate navigate) {

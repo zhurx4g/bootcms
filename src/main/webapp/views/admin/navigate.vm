@@ -29,15 +29,11 @@
               <thead>
                 <tr>
                   <th width="50px">序号</th>
-                  <th>id</th>
-                  <th>parentId</th>
-                  <th>name</th>
-                  <th>sequence</th>
-                  <th>weight</th>
-                  <th>icon</th>
-                  <th>image</th>
-                  <th>description</th>
-                  <th>link</th>
+                  <th>上级导航</th>
+                  <th>导航名字</th>
+                  <th>顺序</th>
+                  <th>描述</th>
+                  <th>链接</th>
 				  <th width="100px">操作</th>
                 </tr>
               </thead>
@@ -46,18 +42,14 @@
                 <tr>
 #set($indexNum=$velocityCount + $pageInfo.offset)
                   <td>${indexNum}</td>
-                  <td>$!navigate.id</td>
-                  <td>$!navigate.parentId</td>
-                  <td>$!navigate.name</td>
+                  <td>#if($!navigate.parentId==0) 一级导航 #else $!parentMap.get($!navigate.parentId).name #end</td>
+                  <td>#if($!navigate.parentId==0)<a href="${contextPath}/admin/navigate/list.html?parentId=$!navigate.id">$!navigate.name</a> #else $!navigate.name #end</td>
                   <td>$!navigate.sequence</td>
-                  <td>$!navigate.weight</td>
-                  <td>$!navigate.icon</td>
-                  <td>$!navigate.image</td>
                   <td>$!navigate.description</td>
                   <td>$!navigate.link</td>
                   <td>
-					<a href="#edit" onclick="edit(this);return false;" data-url="${contextPath}/admin/navigate/get.do" data-param="{key:'$!navigate.id'}">编辑</a>
-				    <a href="#remove" onclick="remove(this);return false;" data-url="${contextPath}/admin/navigate/remove.do" data-param="{key:'$!navigate.id'}" data-title="--请替换此删除提示!--">删除</a>
+					<a href="#edit" onclick="edit(this);return false;" data-url="${contextPath}/admin/navigate/get.do" data-param="{id:'$!navigate.id'}">编辑</a>
+				    <a href="#remove" onclick="remove(this);return false;" data-url="${contextPath}/admin/navigate/remove.do" data-param="{id:'$!navigate.id'}" data-title="$!navigate.name">删除</a>
 				  </td>
                 </tr>
 #end
@@ -73,24 +65,26 @@
         <div class="modal-body">
             <form id="add_form" action="${contextPath}/admin/navigate/add.do" method="POST">
                 <fieldset>
-                    <label><strong>id:</strong></label>
-                    <input type="text" id="add_id" name="id" placeholder="id…" style="width:520px" value="">
-                    <label><strong>parentId:</strong></label>
-                    <input type="text" id="add_parentId" name="parentId" placeholder="parentId…" style="width:520px" value="">
-                    <label><strong>name:</strong></label>
-                    <input type="text" id="add_name" name="name" placeholder="name…" style="width:520px" value="">
-                    <label><strong>sequence:</strong></label>
-                    <input type="text" id="add_sequence" name="sequence" placeholder="sequence…" style="width:520px" value="">
-                    <label><strong>weight:</strong></label>
-                    <input type="text" id="add_weight" name="weight" placeholder="weight…" style="width:520px" value="">
-                    <label><strong>icon:</strong></label>
-                    <input type="text" id="add_icon" name="icon" placeholder="icon…" style="width:520px" value="">
-                    <label><strong>image:</strong></label>
-                    <input type="text" id="add_image" name="image" placeholder="image…" style="width:520px" value="">
-                    <label><strong>description:</strong></label>
-                    <input type="text" id="add_description" name="description" placeholder="description…" style="width:520px" value="">
-                    <label><strong>link:</strong></label>
-                    <input type="text" id="add_link" name="link" placeholder="link…" style="width:520px" value="">
+                    <label><strong>导航级别:</strong></label>
+        			<select id="parentId" name="parentId" style="width:520px">
+        				<option value="0">一级导航</option>
+						<optgroup label="二级导航">
+#foreach($navigate in $parentList)
+        				<option value="$!navigate.id">$!navigate.Name</option>
+#end
+                        </optgroup>
+                    </select>
+                    <label><strong>导航名字:</strong></label>
+                    <input type="text" id="add_name" name="name" placeholder="导航名字…" style="width:520px" value="">
+                    <input type="hidden" id="add_weight" name="weight" placeholder="weight…" style="width:520px" value="">
+                    <input type="hidden" id="add_icon" name="icon" placeholder="icon…" style="width:520px" value="">
+                    <input type="hidden" id="add_image" name="image" placeholder="image…" style="width:520px" value="">
+                    <label><strong>描述:</strong></label>
+                    <input type="text" id="add_description" name="description" placeholder="描述…" style="width:520px" value="">
+                    <label><strong>链接地址:</strong></label>
+                    <input type="text" id="add_link" name="link" placeholder="链接…" style="width:520px" value="">
+                    <label><strong>顺序:</strong></label>
+                    <input type="text" id="add_sequence" name="sequence" placeholder="顺序…" style="width:520px" value="">
                 </fieldset>
             </form>
             <div id="add_message" class="alert alert-error" style="display:none">
@@ -109,24 +103,26 @@
         <div class="modal-body">
             <form id="edit_form" action="${contextPath}/admin/navigate/edit.do" method="POST">
                 <fieldset>
-                    <label><strong>id:</strong></label>
-                    <input type="text" id="edit_id" name="id" placeholder="id…" style="width:520px" value="">
-                    <label><strong>parentId:</strong></label>
-                    <input type="text" id="edit_parentId" name="parentId" placeholder="parentId…" style="width:520px" value="">
-                    <label><strong>name:</strong></label>
-                    <input type="text" id="edit_name" name="name" placeholder="name…" style="width:520px" value="">
-                    <label><strong>sequence:</strong></label>
-                    <input type="text" id="edit_sequence" name="sequence" placeholder="sequence…" style="width:520px" value="">
-                    <label><strong>weight:</strong></label>
-                    <input type="text" id="edit_weight" name="weight" placeholder="weight…" style="width:520px" value="">
-                    <label><strong>icon:</strong></label>
-                    <input type="text" id="edit_icon" name="icon" placeholder="icon…" style="width:520px" value="">
-                    <label><strong>image:</strong></label>
-                    <input type="text" id="edit_image" name="image" placeholder="image…" style="width:520px" value="">
-                    <label><strong>description:</strong></label>
-                    <input type="text" id="edit_description" name="description" placeholder="description…" style="width:520px" value="">
-                    <label><strong>link:</strong></label>
-                    <input type="text" id="edit_link" name="link" placeholder="link…" style="width:520px" value="">
+                    <input type="hidden" id="edit_id" name="id" placeholder="id…" style="width:520px" value="">
+        			<select id="parentId" name="parentId" style="width:520px">
+        				<option value="0">一级导航</option>
+						<optgroup label="二级导航">
+#foreach($navigate in $parentList)
+        				<option value="$!navigate.id">$!navigate.Name</option>
+#end
+                        </optgroup>
+                    </select>
+                    <label><strong>导航名字:</strong></label>
+                    <input type="text" id="edit_name" name="name" placeholder="导航名字…" style="width:520px" value="">
+                    <input type="hidden" id="edit_weight" name="weight" placeholder="weight…" style="width:520px" value="">
+                    <input type="hidden" id="edit_icon" name="icon" placeholder="icon…" style="width:520px" value="">
+                    <input type="hidden" id="edit_image" name="image" placeholder="image…" style="width:520px" value="">
+                    <label><strong>描述:</strong></label>
+                    <input type="text" id="edit_description" name="description" placeholder="描述…" style="width:520px" value="">
+                    <label><strong>链接地址:</strong></label>
+                    <input type="text" id="edit_link" name="link" placeholder="链接地址…" style="width:520px" value="">
+                    <label><strong>顺序:</strong></label>
+                    <input type="text" id="edit_sequence" name="sequence" placeholder="顺序…" style="width:520px" value="">
                 </fieldset>
             </form>
 			<div id="edit_message" class="alert alert-error" style="display:none">
@@ -149,14 +145,6 @@
     		<form id="remove_form" action="${contextPath}/admin/navigate/remove.do" method="POST">
                 <fieldset>
                     <input type="hidden" id="remove_id" name="id" placeholder="id…" value="">
-                    <input type="hidden" id="remove_parentId" name="parentId" placeholder="parentId…" value="">
-                    <input type="hidden" id="remove_name" name="name" placeholder="name…" value="">
-                    <input type="hidden" id="remove_sequence" name="sequence" placeholder="sequence…" value="">
-                    <input type="hidden" id="remove_weight" name="weight" placeholder="weight…" value="">
-                    <input type="hidden" id="remove_icon" name="icon" placeholder="icon…" value="">
-                    <input type="hidden" id="remove_image" name="image" placeholder="image…" value="">
-                    <input type="hidden" id="remove_description" name="description" placeholder="description…" value="">
-                    <input type="hidden" id="remove_link" name="link" placeholder="link…" value="">
                 </fieldset>
             </form>
     		<div id="remove_message" class="alert alert-error" style="display:none">
@@ -168,6 +156,8 @@
             <button class="btn btn-danger" onclick="ajaxSubmit('#remove_form','#remove_message')">删除</button>
         </div>
     </div>
+#parse("views/inc/progress.vm")
+#parse("views/inc/confirm.vm")
 #parse("views/inc/js.vm")
   </body>
 </html>

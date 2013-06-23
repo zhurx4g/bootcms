@@ -87,7 +87,7 @@
   <body>
 
     <div class="container">
-#include('views/inc/nav.vm')
+#parse('views/inc/nav.vm')
       <!-- Jumbotron -->
       <div class="jumbotron">
         <h1>Marketing stuff!</h1>

@@ -12,7 +12,6 @@ import com.googlecode.bootstrapx.service.SubSystemService;
 
 @LoginRequired
 public class AdminCommonController extends AbstractController {
-	protected final int SIZE = 20;
 	@Autowired
 	protected SubSystemService subSystemService;
 

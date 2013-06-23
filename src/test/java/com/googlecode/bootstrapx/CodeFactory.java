@@ -2,6 +2,7 @@ package com.googlecode.bootstrapx;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,6 +52,14 @@ public class CodeFactory {
 		System.out.println(VelocityEngineUtils.mergeTemplateIntoString(engine, "common/template.vm", "utf-8", model));
 	}
 	public static void main(String[] args) {
-		generate(Navigate.class, Navigate.class, "admin",null);
+		Navigate._Fields[] fields = Navigate._Fields.values();
+		for(int i=0;i<fields.length;i++,System.out.print(",")){
+			System.out.print(fields[i].getFieldName());
+		}
+		System.out.println();
+		for(int i=0;i<fields.length;i++,System.out.print(",")){
+			System.out.print(":navigate."+fields[i].getFieldName());
+		}
+		//generate(Navigate.class, Navigate.class, "admin",null);
 	}
 }

@@ -1,6 +1,8 @@
 package com.googlecode.bootstrapx.web.controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import net.paoding.rose.web.Invocation;
 import net.paoding.rose.web.annotation.HttpFeatures;
@@ -11,17 +13,32 @@ import net.paoding.rose.web.annotation.rest.Post;
 
 import org.json.JSONObject;
 
+import com.googlecode.bootstrapx.Constant;
 import com.googlecode.bootstrapx.model.Navigate;
 import com.googlecode.bootstrapx.model.OperateType;
+import com.googlecode.bootstrapx.util.PageInfo;
+import com.googlecode.bootstrapx.util.PageInfoBuilder;
+import com.googlecode.bootstrapx.model.Status;
 
 @Path("admin/navigate")
 public class AdminNavigateController extends AdminCommonController {
 
 	@Get("list.html")
-	public String list(@Param("page") int page, Invocation inv){
-		List<Navigate> navigateList = navigateService.select(page, SIZE, 1, "updateTime desc");
-		
+	public String list(@Param("page") int page, Invocation inv, @Param("parentId") int parentId){
+		List<Navigate> navigateList = navigateService.select(parentId, page, Constant.PAGE_SIZE, Status.NORMAL, "updateTime desc");
 		inv.addModel("navigateList", navigateList);
+		
+		List<Navigate> parentList = navigateService.select(0, 0, Integer.MAX_VALUE, Status.NORMAL, "updateTime desc");
+		inv.addModel("parentList", parentList);
+
+		Map<Integer,Navigate> parentMap = new HashMap<Integer,Navigate>();
+		for(Navigate nav:parentList){
+			parentMap.put(nav.getId(), nav);
+		}
+		inv.addModel("parentMap", parentMap);
+
+        PageInfo pageInfo = PageInfoBuilder.build("admin/navigate/list.html", navigateService.getCount(parentId, Status.NORMAL), page, Constant.PAGE_SIZE);
+        inv.addModel("pageInfo", pageInfo);
 		return "admin/navigate";
 	}
 
@@ -56,11 +73,17 @@ public class AdminNavigateController extends AdminCommonController {
 	}
 	@Post("remove.do")
 	@HttpFeatures(contentType = "application/json", charset = "UTF-8")
-	public JSONObject remove(@Param("key") String key){
+	public JSONObject remove(@Param("id") int id){
 		JSONObject resultJson = new JSONObject();
 		
 		try{
-			int rows = navigateService.remove(key);
+			int total = navigateService.getCount(id, Status.NORMAL);
+			if(total>0){
+				P(resultJson, RESULT, NG);
+				P(resultJson, MSG, "更新成功.");
+				return resultJson;
+			}
+			int rows = navigateService.remove(id);
 			resultJson = parseJSON(OperateType.REMOVE, rows);
 		}catch(Exception e){
 			LOGGER.error("", e);
