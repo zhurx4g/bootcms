@@ -24,7 +24,7 @@ create table `common_user`(
 	primary key(`id`),
 	unique key(`email`)
 ) engine=innodb default charset=utf8;
-insert into common_user values(null,'','rdadmin',md5('miuiadmin4rd'),0,0,0,0,1);
+insert into common_user values(null,'','rdadmin',md5('cmsadmin4rd'),0,0,0,0,1);
 
 create table `common_privilege`(
 	`id` int(10) unsigned  not null auto_increment ,
