@@ -1,0 +1,55 @@
+#origami {
+    background: none repeat scroll 0 0 #F9FAF7;
+    min-height: 100%;
+    position: relative;
+}
+.container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+    width: 1000px;
+}
+.navbar-inner {
+    background-color: #FFFFFF;
+    background-image: -moz-linear-gradient(center top , #FFFFFF, #FFFFFF);
+}
+.navbar .brand {
+    color: #0F0F0F;
+}
+
+.navbar .nav .dropdown-toggle .caret, .navbar .nav .open.dropdown .caret {
+	border-bottom-color: #000000;
+    border-top-color: #000000;
+}
+.navbar .nav > li > a:hover {
+    background-color: transparent;
+    color: #000000;
+    text-decoration: none;
+}
+.dropdown.open .dropdown-toggle {
+    color: #000000;
+}
+.searchContainer {
+	background-color: #000000;
+}
+
+.coursera-course-card .coursera-course-card-image img {
+    width: 300px;
+}
+.coursera-course-card .coursera-course-card-image img {
+    min-height: 163px;
+    min-width: 290px;
+}
+
+.coursera-course-card .coursera-course-card-details .coursera-course-card-name {
+    display: block;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 1.2em;
+    margin: 0 0 3px;
+    max-height: 2.4em;
+    overflow: hidden;
+}
+.span4 {
+    width: 30%;
+}
+#push, #footer {
+    height: 60px;
+}

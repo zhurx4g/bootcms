@@ -1,46 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 #parse('views/inc/header.vm')
-  <body>
-    <div class="container">
+    <body>
+        <div id="origami">
 #parse('views/inc/nav.vm')
-      <!-- Jumbotron -->
-      <div class="jumbotron">
-        <h1>Marketing stuff!</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <a class="btn btn-large btn-success" href="#">Get started today</a>
-      </div>
-
-      <hr>
-
-      <!-- Example row of columns -->
-      <div class="row-fluid">
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+            <div class="searchContainer">
+                <div class="container">
+                    <div class="hero-unit" style="background-image: url('${contextPath}/images/gatech.jpg');box-shadow:50px 0 120px -20px #000000 inset, 50px 0 120px -40px #000000 inset, -50px 0 120px -20px #000000 inset, -50px 0 120px -40px #000000 inset, 0 10px 10px -10px #000000 inset, 0 -10px 10px -10px #000000 inset">
+                        <h1>Hello, world!</h1>
+                        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+                        <p>
+                            <a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="span4">
+                        <div class="coursera-course-card">
+                            <div class="coursera-course-card-image">
+                                <a class="internal-home coursera-front-to-course-link" href="https://www.coursera.org/course/malsoftware">
+                                    <img src="https://coursera-course-photos.s3.amazonaws.com/e8/06553aa034970e31d0c6372c02822e/cavallaro-logo.png"/>
+                                </a>
+                            </div>
+                            <div class="coursera-course-card-details">
+                                <a class="internal-home coursera-front-to-course-link" href="https://www.coursera.org/course/malsoftware">
+                                    <h3 class="coursera-course-card-name">Malicious Software …</h3>
+                                </a>
+                                <div style="line-height:17px;">
+                                    <a class="internal-home" href="/london">
+                                        <span class="coursera-course-card-uni">University of London International Programmes</span>
+                                    </a>
+                                    , <span class="coursera-course-card-startdate">Jun 17th</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class="coursera-course-card">
+                            <div class="coursera-course-card-image">
+                                <a class="internal-home coursera-front-to-course-link" href="https://www.coursera.org/course/nutritionforhealth">
+                                    <img src="https://coursera-course-photos.s3.amazonaws.com/bb/8bbed1dc0544194f60e3cc38bec918/NewNutrition-LARGE.gif" />
+                                </a>
+                            </div>
+                            <div class="coursera-course-card-details">
+                                <a class="internal-home coursera-front-to-course-link" href="https://www.coursera.org/course/nutritionforhealth">
+                                    <h3 class="coursera-course-card-name">Nutrition</h3>
+                                </a>
+                                <div style="line-height:17px;">
+                                    <a class="internal-home" href="/pitt">
+                                        <span class="coursera-course-card-uni">University of Pittsburgh</span>
+                                    </a>
+                                    , <span class="coursera-course-card-startdate">Jul 15th</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class="coursera-course-card">
+                            <div class="coursera-course-card-image">
+                                <a class="internal-home coursera-front-to-course-link" href="https://www.coursera.org/course/algo">
+                                    <img src="https://s3.amazonaws.com/coursera/topics/algo/large-icon.png" />
+                                </a>
+                            </div>
+                            <div class="coursera-course-card-details">
+                                <a class="internal-home coursera-front-to-course-link" href="https://www.coursera.org/course/algo">
+                                    <h3 class="coursera-course-card-name">Algorithms</h3>
+                                </a>
+                                <div style="line-height:17px;">
+                                    <a class="" href="http://online.stanford.edu/">
+                                        <span class="coursera-course-card-uni">Stanford University</span>
+                                    </a>
+                                    , <span class="coursera-course-card-startdate">Jul 1st</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                </div>
+            </div>
+#parse('views/inc/footer.vm')
         </div>
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-       </div>
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div>
-      </div>
-
-      <hr>
-
-      <div class="footer">
-        <p>&copy; Company 2013</p>
-      </div>
-
-    </div> <!-- /container -->
-
-    <script src="${contextPath}/js/jquery-1.9.1.min.js"></script>
-    <script src="${contextPath}/${bootstrap_home}/js/bootstrap.js?ver=$revxxx$" type="text/javascript"></script>
-  </body>
+        <script src="${contextPath}/js/jquery-1.9.1.min.js"></script>
+        <script src="${contextPath}/${bootstrap_home}/js/bootstrap.js?ver=$revxxx$" type="text/javascript"></script>
+    </body>
 </html>

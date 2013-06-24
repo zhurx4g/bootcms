@@ -59,7 +59,7 @@
     </div>
     <div id="add" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="$('#add').modal('hide');">×</button>
             <h3 id="myModalLabel">添加</h3>
         </div>
         <div class="modal-body">
@@ -77,13 +77,13 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true" onclick="$('#add').modal('hide');">关闭</button>
             <button class="btn btn-primary" onclick="ajaxSubmit('#add_form','#add_message');">添加</button>
         </div>
     </div>
     <div id="edit" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="$('#edit').modal('hide');">×</button>
             <h3 id="myModalLabel">编辑</h3>
         </div>
         <div class="modal-body">
@@ -103,13 +103,13 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true" onclick="$('#edit').modal('hide');">关闭</button>
             <button class="btn btn-primary" onclick="ajaxSubmit('#edit_form','#edit_message');">保存</button>
         </div>
     </div>
     <div id="privilege" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="$('#privilege').modal('hide');">×</button>
             <h3 id="myModalLabel">授权</h3>
         </div>
         <div class="modal-body">
@@ -127,13 +127,13 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true" onclick="$('#privilege').modal('hide');">关闭</button>
             <button class="btn btn-primary" onclick="ajaxSubmitPriv('#privilege_form','#privilege_message');">保存</button>
         </div>
     </div>
     <div id="remove" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="$('#remove').modal('hide');">×</button>
             <h3 id="myModalLabel">确定删除</h3>
         </div>
         <div class="modal-body">
@@ -148,7 +148,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true" onclick="$('#remove').modal('hide');">关闭</button>
             <button class="btn btn-danger" onclick="ajaxSubmit('#remove_form','#remove_message')">删除</button>
         </div>
     </div>
