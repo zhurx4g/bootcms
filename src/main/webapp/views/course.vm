@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+    #parse('views/inc/header.vm')
+    <body>
+        <div id="origami">
+            #parse('views/inc/nav.vm')
+            <div class="container">
+                <div class="coursera-full-canvas">
+                    <div class="row-fluid">
+                        <div class="coursera-edit-page" style="margin-bottom: 16px;">
+                            <div class="coursera-edit-page-button"></div>
+                        </div>
+                    </div>
+                    <div class="coursera-course-content">
+                        <div class="row-fluid" style="margin-bottom:30px;">
+                            <div class="span6">
+                                <div style="margin-bottom:15px;">
+                                    <a class="internal-home" href="/pitt" style="margin-right: 20px; color: rgb(33, 28, 81);">
+                                        <img class="coursera-course-school-logo" alt="University of Pittsburgh" src="https://coursera-university-assets.s3.amazonaws.com/7b/10384469bc3891766ffd0ab7eb40b4/wide-logo.png"></a>
+</div>
+<h1 style="font-size:36px;line-height:1.2em;">Nutrition and Physical Activity for Health</h1>
+<h3 class="instructor-name" style="margin-top:10px;">Amy D. Rickman, Ph.D., RD, LDN and John M. Jakicic, Ph.D.</h3>
+<p style="margin-top:12px;">This course will provide a coherent, understandable look at the evidence on how nutrition and physical activity impact health through lower morbidity, longevity, and quality of life.</p>
+<div style="margin-bottom:10px;">
+    <span data-msg="coursera-course-workload" style="font-weight:bold">Workload: </span>
+    <span>3-5 hours/week&nbsp;</span>
+</div>
+                                </div>
+                                <div class="span6">
+                                    <div style="position:relative;"></div>
+                                    <div class="shadow-corners">
+                                        <div class="coursera-course-logo">
+                                            <img style="width:100%;" src="https://coursera-course-photos.s3.amazonaws.com/bb/8bbed1dc0544194f60e3cc38bec918/NewNutrition-LARGE.gif"></div>
+                                            <div class="btn coursera-course-playbutton">
+                                                <div></div>
+                                                <span style="margin-right:8px;">Watch intro video</span>
+                                            </div>
+                                        </div>
+                                        <iframe height="231" frameborder="0" width="412" class="hide coursera-course-video" wmode="opaque" allowfullscreen="allowfullscreen"></iframe>
+                                    </div>
+                                </div>
+                                <hr class="coursera-full-page-divider-no_padding" style="clear:both;">
+                                    <div class="row-fluid">
+                                        <div class="span7">
+                                            <div class="coursera-course-listings" style="margin-bottom:10px; width:700px;">
+                                                <span class="coursera-course-listings-header" data-msg="coursera-course-listings-sessions">Sessions:</span>
+                                                <table>
+                                                    <tbody>
+                                                        <tr class="coursera-course-listing" data-course-id="970250">
+                                                            <td>
+                                                                <span>Jul 15th 2013</span>
+                                                                <span> 
+                                                                    (6 weeks long)</span>
+                                                            </td>
+                                                            <td style="padding-left: 15px;">
+                                                                <a class="btn btn-primary coursera-course-button coursera-course-button-join">Sign Up</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="coursera-course-listing">
+                                                            <td>Future sessions</td>
+                                                            <td>
+                                                                <span class="coursera-course-subscribe">
+                                                                    <button class="btn btn-primary coursera-course-button" type="button">Add to Watchlist</button>
+                                                                </span>
+                                                                <span class="coursera-course-subscribed" style="display:none;">
+                                                                    <button class="btn btn-success coursera-course-button" disabled="disabled" type="button">You're Watching!</button>
+                                                                        <a class="coursera-course-unsubscribe" style="font-size: smaller; margin-left: 10px; color: rgb(33, 28, 81);" href="javascript:void(0)">Remove from watchlist</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="span1">
+    <div>&nbsp;</div>
+</div>
+<div class="span4" style="padding-top:8px;">
+    <div class="hide social" style="display: block;">
+        <div class="social-facebook" style="float:right;">
+            <fb:like show_faces="false" width="50" layout="box_count" send="false" href="https://www.coursera.org/course/nutritionforhealth" fb-xfbml-state="parsed" class=" fb_edge_widget_with_comment fb_iframe_widget">
+                <span style="height: 65px; width: 55px;">
+                    <iframe scrolling="no" id="f3780d7c5428e94" name="f2b964801f6f25c" style="border: medium none; overflow: hidden; height: 65px; width: 55px;" title="Like this content on Facebook." class="fb_ltr" src="https://www.facebook.com/plugins/like.php?api_key=&amp;locale=en_US&amp;sdk=joey&amp;channel_url=https%3A%2F%2Fs-static.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D25%23cb%3Df1d3d95ff777f78%26origin%3Dhttps%253A%252F%252Fwww.coursera.org%252Ff21f8041833ed9c%26domain%3Dwww.coursera.org%26relation%3Dparent.parent&amp;href=https%3A%2F%2Fwww.coursera.org%2Fcourse%2Fnutritionforhealth&amp;node_type=link&amp;width=55&amp;layout=box_count&amp;colorscheme=light&amp;show_faces=false&amp;send=false&amp;extended_social_context=false"></iframe>
+                </span>
+            </fb:like>
+        </div>
+        <div class="social-google" style="float:right;margin-right:10px;">
+            <div class="g-plusone" data-href="https://www.coursera.org/course/nutritionforhealth" data-size="tall" id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 50px; height: 60px;">
+                <iframe frameborder="0" width="100%" scrolling="no" hspace="0" marginheight="0" marginwidth="0" style="position: static; top: 0px; width: 50px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 60px;" tabindex="0" vspace="0" id="I0_1372158850384" name="I0_1372158850384" src="https://apis.google.com/_/+1/fastbutton?bsv&amp;count=true&amp;size=tall&amp;hl=en-US&amp;origin=https%3A%2F%2Fwww.coursera.org&amp;url=https%3A%2F%2Fwww.coursera.org%2Fcourse%2Fnutritionforhealth&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.zh_CN.Oi0Gpdm7Dlc.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAItRSTO0d4eY4LV1QIukSONa8ko1Rg6yCw#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled&amp;id=I0_1372158850384&amp;parent=https%3A%2F%2Fwww.coursera.org&amp;rpctoken=74613742" allowtransparency="true" data-gapiattached="true" title="+1"></iframe>
+            </div>
+        </div>
+        <div class="social-twitter" style="float:right;">
+            <iframe frameborder="0" scrolling="no" style="width:58px; height:65px; margin-right:10px;" src="//platform.twitter.com/widgets/tweet_button.html?url=https%3A%2F%2Fwww.coursera.org%2Fcourse%2Fnutritionforhealth&amp;text=I%20signed%20up%20for%20Nutrition%20and%20Physical%20Activity%20for%20Health%20on%20%40Coursera!&amp;hashtags=nutritionforhealth&amp;count=vertical&amp;size=s" allowtransparency="true"></iframe>
+        </div>
+    </div>
+</div>
+</div>
+<hr class="coursera-full-page-divider-no_padding">
+    <div class="row-fluid">
+        <div class="span7">
+            <div>
+                <h2 class="coursera-course-heading" data-msg="coursera-course-about">About the Course</h2>
+                <div class="coursera-course-detail">Over 65 percent of adults and over 30 percent of children meet the classification
+                    of being overweight or obese, and with this excess weight comes numerous
+                    health conditions that include heart disease, diabetes, cancer, musculoskeletal
+                    disorders, and even impairments in cognitive function. Because in most
+                    cases the core cause of obesity and its related health conditions is a
+                    poor quality of diet and lack of sufficient physical activity, it is no
+                    surprise that to reverse this health problem a foundation of proper nutrition
+                    and sufficient physical activity is imperative.
+                    <br>
+                        <br>This course is designed to provide a foundation of nutritional knowledge
+                            to develop a sustainable pattern of healthy eating. To this will be added
+                            a foundation of knowledge related to physical activity and exercise. These
+                            two key lifestyle behaviors are then brought together under the umbrella
+                            of calorie balance, which is the understanding of how we balance the calories
+                            that we eat in our diet with the calories that we burn to sustain life
+                            and to perform all of our daily tasks and functions.
+                            <br>
+                                <br>Ultimately, this information can only be of value if individuals understand
+                                    how to engage in these healthy behaviors within their daily lives when
+                                    they are faced with challenges and barriers. This course will address key
+                                    issues and will provide information on effective strategies for adopting
+                                    and maintaining these targeted behaviors as they apply to the adoption
+                                    and maintenance of a healthy lifestyle.
+                                    <br></div>
+                                    <h2 class="coursera-course-heading" style="clear:both;" data-msg="coursera-course-syllabus">Course Syllabus</h2>
+                                    <div class="coursera-course-detail">There are no required textbooks for this course. Please see the list of
+                                        recommended readings and references below. There will also be links to
+                                        online documents and resources provided throughout the course.
+                                        <br>
+                                            <br>
+                                                <b>Week 1:</b>
+                                                <br>
+                                                    <ul>
+                                                        <li>Module 1: Linking Nutrition and Physical Activity to Health Outcomes</li>
+                                                        <li>Module 2: Assessing Nutrition, Physical Activity, and Body Composition</li>
+                                                    </ul>
+                                                    <b>Week 2: </b>
+                                                    <br>
+                                                        <ul>
+                                                            <li>Module 3: Macronutrient Considerations: Carbohydrates</li>
+                                                            <li>Module 4: Macronutrient Considerations: Proteins</li>
+                                                        </ul>
+                                                        <b>Week 3: </b>
+                                                        <br>
+                                                            <ul>
+                                                                <li>Module 5: Macronutrient Considerations: Fats</li>
+                                                                <li>Module 6: Vitamins</li>
+                                                            </ul>
+                                                            <b>Week 4: </b>
+                                                            <br>
+                                                                <ul>
+                                                                    <li>Module 7: Minerals</li>
+                                                                    <li>Module 8: Strategies for Improving Nutritional Habits</li>
+                                                                </ul>
+                                                                <b>Week 5: </b>
+                                                                <br>
+                                                                    <ul>
+                                                                        <li>Module 9: Physical Activity Consideration: Aerobic vs. Resistance vs.
+                                                                            Lifestyle</li>
+                                                                            <li>Module 10: Strategies for Improving Physical Activity</li>
+                                                                    </ul>
+                                                                    <b>Week 6: </b>
+                                                                    <br>
+                                                                        <ul>
+                                                                            <li>Module 11: Calorie (Energy Balance): The Interaction of Nutrition and
+                                                                                Physical Activity</li>
+                                                                        </ul>
+                                                                        <b>Final Examination</b>
+                                                                        <br></div>
+                                                                        <h2 class="coursera-course-heading" data-msg="coursera-course-background">Recommended Background</h2>
+                                                                        <div class="coursera-course-detail">There are no prerequisites for this course. However, a general background
+                                                                            in basic nutrition and physical activity may be helpful to the student
+                                                                            prior to taking this course.
+                                                                            <br></div>
+                                                                            <div class="coursera-course-free-textbooks" style="display:none;">
+                                                                                <h2 data-msg="coursera-course-free-textbooks">In-course Textbooks</h2>
+                                                                                <p>As a student enrolled in this course, you will have free access to selected chapters and content for the duration of the course. All chapters were selected by the instructor specifically for this course. You will be able to access the Coursera edition of the e-textbook via an e-reader in the class site hosted by Chegg. If you click on “Buy this book”, you will be able to purchase the full version of the textbook, rather than the limited chapter selection in the Coursera edition. This initiative is made possible by Coursera’s collaboration with textbook publishers and Chegg.</p>
+                                                                            </div>
+                                                                            <div class="coursera-course-textbook-list"></div>
+                                                                            <h2 class="coursera-course-heading" data-msg="coursera-course-readings">Suggested Readings</h2>
+                                                                            <div class="coursera-course-detail">
+                                                                                <ul>
+                                                                                    <li>Donnelly JE, Jakicic JM, Blair SN, Rankin J, Manore M.&nbsp; ACSM "Position
+                                                                                        Stand on Appropriate Intervention Strategies for Weight Loss and Prevention
+                                                                                        of Weight Regain for Adults," <i>Medicine and Science in Sports and Exercise</i>
+                                                                                        .
+                                                                                        2009; 41(2): 459-471.&nbsp; PMID: 19127177.
+                                                                                        <br>
+                                                                                            <br>
+</li>
+<li>"Position of the American Dietetic Association: Weight Management," &nbsp;<i>Journal of the American Dietetic Association</i>
+    .&nbsp;
+    2009; 109: 330-346.
+    <br>
+        <br>
+</li>
+<li>
+    <i>Physical Activity Guidelines for Americans</i>
+    .&nbsp; This can be accessed
+    online at: <a target="_blank" href="http://www.health.gov/paguidelines/guidelines/default.aspx" style="color: rgb(33, 28, 81);">http://www.health.gov/paguidelines/guidelines/default.aspx</a>
+</li>
+</ul>
+</div>
+<h2 class="coursera-course-heading" data-msg="coursera-course-format">Course Format</h2>
+<div class="coursera-course-detail">This class will consist of lecture recordings of modules on specific topics.
+    Each week will have a quiz focused on the content of that specific module
+    to assist students with assessment of their learning. There will also be
+    out of class activities and readings, plus a final exam.
+    <br></div>
+    <h2 class="coursera-course-heading" data-msg="coursera-course-faq">FAQ</h2>
+    <div class="coursera-course-detail">
+        <b>Do I need a textbook?</b>
+        <br>
+            <ul>
+                <li>No textbook is required. However, the students may be provided with supplemental
+                    reading assignments during this course that will either be provided by
+                    the instructors or will be available online.</li>
+            </ul>
+            <b>Is this a self-paced course or do I need to be available at specific times?</b>
+            <br>
+                <ul>
+                    <li>The student does not need to be available at specific times to complete
+                        the requirements of this course. However, each module needs to be completed
+                        within a given time period, which is typically 1 week in length.</li>
+                </ul>
+                <b>Can the students contact the instructor?</b>
+                <br>
+                    <ul>
+                        <li>The instructor will be monitoring the course. If problems arise there
+                            will be a mechanism in which the student can inform the instructor, and
+                            the instructor or teaching assistant will respond within a reasonable period
+                            of time.</li>
+                    </ul>
+                    <b>If I do not have a background in nutrition or physical activity can I still take this course?</b>
+                    <br>
+                        <ul>
+                            <li>Yes. This course is designed to provide an understanding of key lifestyle
+                                behaviors that include body weight and related chronic diseases. Having
+                                a basic understanding of these factors prior to the course may be helpful.
+                                The course material will be taught in a manner that will allow students
+                                with varied backgrounds, but with an interest in nutrition and physical
+                                activity, to effectively complete this course.</li>
+                        </ul>
+</div>
+</div>
+</div>
+<div class="span1"></div>
+<div class="span4">
+    <div class="coursera-course2-data">
+        <h2 class="coursera-course-heading" style="margin-bottom:24px;" data-msg="coursera-course-instructor">About the Instructors</h2>
+        <div class="coursera-course2-instructors">
+            <div class="coursera-course2-instructors-profile">
+                <div class="coursera-course2-instructors-profile-image">
+                    <a class="internal-home" style="background-image: url(&quot;https://coursera-instructor-photos.s3.amazonaws.com/64/650d577eef0a6886dad56679b2e64b/Coursera-upload3-600x600.jpg&quot;); color: rgb(33, 28, 81);" href="https://www.coursera.org/instructor/arickman"></a>
+                </div>
+                <div class="coursera-course2-instructors-profile-inner-shadow"></div>
+                <div class="coursera-course2-instructors-info">
+                    <a class="internal-home" href="https://www.coursera.org/instructor/arickman" style="color: rgb(33, 28, 81);">
+                        <span class="coursera-course2-instructor-name">Amy D. Rickman</span>
+                    </a>
+                    <a class="internal-home" href="/pitt" style="color: rgb(33, 28, 81);">
+                        <span class="coursera-course2-instructor-university">University of Pittsburgh</span>
+                    </a>
+                </div>
+            </div>
+            <div class="coursera-course2-instructors-profile">
+                <div class="coursera-course2-instructors-profile-image">
+                    <a class="internal-home" style="background-image: url(&quot;https://coursera-instructor-photos.s3.amazonaws.com/9f/75871196eb1f951df7c8957a2414bb/John-Jakicic_new_sm.jpg&quot;); color: rgb(33, 28, 81);" href="https://www.coursera.org/instructor/jjakicic"></a>
+                </div>
+                <div class="coursera-course2-instructors-profile-inner-shadow"></div>
+                <div class="coursera-course2-instructors-info">
+                    <a class="internal-home" href="https://www.coursera.org/instructor/jjakicic" style="color: rgb(33, 28, 81);">
+                        <span class="coursera-course2-instructor-name">John M. Jakicic</span>
+                    </a>
+                    <a class="internal-home" href="/pitt" style="color: rgb(33, 28, 81);">
+                        <span class="coursera-course2-instructor-university">University of Pittsburgh</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<hr class="coursera-full-page-divider-no_padding">
+    <div class="row-fluid">
+        <div class="span12">
+            <br>
+                <div style="margin-bottom:3px;">
+                    <span data-msg="coursera-course-categories" style="font-weight:bold">Categories: </span>
+                    <br>
+                        <a class="internal-home" href="/courses?cats=medicine" style="color: rgb(33, 28, 81);">Medicine</a>
+                        <br>
+                            <a class="internal-home" href="/courses?cats=food" style="color: rgb(33, 28, 81);">Food and Nutrition</a>
+                            <br></div>
+                            <div style="border-top: 1px solid #CCC; padding-top: 30px; margin: auto; text-align: center; margin-top: 36px;">
+                                <a class="btn btn-large btn-primary internal-home" style="margin-top: 20px; ; display: inline-block;" href="/courses">浏览更多...</a>
+                            </div>
+</div>
+                </div>
+                </div>
+        </div>
+        </div>
+        #parse('views/inc/footer.vm')
+    </div>
+    <script src="${contextPath}/js/jquery-1.9.1.min.js"></script>
+    <script src="${contextPath}/${bootstrap_home}/js/bootstrap.js?ver=$revxxx$" type="text/javascript"></script>
+</body>
+</html>

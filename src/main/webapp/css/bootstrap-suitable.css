@@ -53,3 +53,63 @@
 #push, #footer {
     height: 60px;
 }
+.coursera-front-section-header {
+    margin: 30px 0 6px;
+}
+
+.coursera-front-section-header .coursera-front-section-header-title {
+    font-family: "sofiapro-bold",Arial,sans-serif;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.coursera-front-section-header .coursera-front-section-header-link {
+    float: right;
+    font-family: "sofiapro",Arial,sans-serif;
+    text-align: right;
+}
+.coursera-front-section-header-link {
+    float: right;
+    padding-top: 10px;
+    text-align: right;
+}
+.coursera-front-section-header .coursera-front-section-header-title {
+    font-family: "sofiapro-bold",Arial,sans-serif;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.coursera-front-search-banner-hero-container .coursera-front-search-banner-container .coursera-front-search-banner-main-group {
+    font-family: "enriqueta",Garamond,serif;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 16px;
+    width: 940px;
+}
+
+.coursera-course-logo {
+    cursor: pointer;
+}
+.coursera-course-logo, .coursera-course-logo-no-video {
+    background-color: #FFFFFF;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 1px solid #D9D9D9;
+    float: right;
+    height: 233px;
+    overflow: hidden;
+    text-align: center;
+    width: 412px;
+}
+
+.coursera-full-canvas {
+    -moz-box-sizing: border-box;
+    background-color: #FFFFFF;
+    border-radius: 1px 1px 1px 1px;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.25);
+    height: 100%;
+    margin-left: -3.19149%;
+    padding: 50px 30px 48px;
+    width: 106.383%;
+}

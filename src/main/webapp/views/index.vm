@@ -25,7 +25,7 @@
                                 </a>
                             </div>
                             <div class="coursera-course-card-details">
-                                <a class="internal-home coursera-front-to-course-link" href="https://www.coursera.org/course/malsoftware">
+                                <a class="internal-home coursera-front-to-course-link" href="${contextPath}/course/info.html">
                                     <h3 class="coursera-course-card-name">Malicious Software …</h3>
                                 </a>
                                 <div style="line-height:17px;">
@@ -40,7 +40,7 @@
                     <div class="span4">
                         <div class="coursera-course-card">
                             <div class="coursera-course-card-image">
-                                <a class="internal-home coursera-front-to-course-link" href="https://www.coursera.org/course/nutritionforhealth">
+                                <a class="internal-home coursera-front-to-course-link" href="${contextPath}/course/info.html">
                                     <img src="https://coursera-course-photos.s3.amazonaws.com/bb/8bbed1dc0544194f60e3cc38bec918/NewNutrition-LARGE.gif" />
                                 </a>
                             </div>
@@ -60,7 +60,7 @@
                     <div class="span4">
                         <div class="coursera-course-card">
                             <div class="coursera-course-card-image">
-                                <a class="internal-home coursera-front-to-course-link" href="https://www.coursera.org/course/algo">
+                                <a class="internal-home coursera-front-to-course-link" href="${contextPath}/course/info.html">
                                     <img src="https://s3.amazonaws.com/coursera/topics/algo/large-icon.png" />
                                 </a>
                             </div>
