@@ -41,6 +41,7 @@ struct Navigate {
     12: i64 updateTime = 0;
     13: string link = '';
     14: i32 status = 1;
+    15: i32 count = 0;
 }
 
 struct FriendLink {

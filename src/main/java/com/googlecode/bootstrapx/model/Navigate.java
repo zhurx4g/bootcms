@@ -43,6 +43,7 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
   private static final TField UPDATE_TIME_FIELD_DESC = new TField("updateTime", TType.I64, (short)12);
   private static final TField LINK_FIELD_DESC = new TField("link", TType.STRING, (short)13);
   private static final TField STATUS_FIELD_DESC = new TField("status", TType.I32, (short)14);
+  private static final TField COUNT_FIELD_DESC = new TField("count", TType.I32, (short)15);
 
   private int id;
   private int parentId;
@@ -58,6 +59,7 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
   private long updateTime;
   private String link;
   private int status;
+  private int count;
 
   /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
   public enum _Fields implements TFieldIdEnum {
@@ -74,7 +76,8 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
     CREATE_TIME((short)11, "createTime"),
     UPDATE_TIME((short)12, "updateTime"),
     LINK((short)13, "link"),
-    STATUS((short)14, "status");
+    STATUS((short)14, "status"),
+    COUNT((short)15, "count");
 
     private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
 
@@ -117,6 +120,8 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
           return LINK;
         case 14: // STATUS
           return STATUS;
+        case 15: // COUNT
+          return COUNT;
         default:
           return null;
       }
@@ -166,7 +171,8 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
   private static final int __CREATETIME_ISSET_ID = 6;
   private static final int __UPDATETIME_ISSET_ID = 7;
   private static final int __STATUS_ISSET_ID = 8;
-  private BitSet __isset_bit_vector = new BitSet(9);
+  private static final int __COUNT_ISSET_ID = 9;
+  private BitSet __isset_bit_vector = new BitSet(10);
 
   public static final Map<_Fields, FieldMetaData> metaDataMap;
   static {
@@ -199,6 +205,8 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
         new FieldValueMetaData(TType.STRING)));
     tmpMap.put(_Fields.STATUS, new FieldMetaData("status", TFieldRequirementType.DEFAULT, 
         new FieldValueMetaData(TType.I32)));
+    tmpMap.put(_Fields.COUNT, new FieldMetaData("count", TFieldRequirementType.DEFAULT, 
+        new FieldValueMetaData(TType.I32)));
     metaDataMap = Collections.unmodifiableMap(tmpMap);
     FieldMetaData.addStructMetaDataMap(Navigate.class, metaDataMap);
   }
@@ -216,6 +224,8 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
 
     this.status = 1;
 
+    this.count = 0;
+
   }
 
   public Navigate(
@@ -232,7 +242,8 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
     long createTime,
     long updateTime,
     String link,
-    int status)
+    int status,
+    int count)
   {
     this();
     this.id = id;
@@ -258,6 +269,8 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
     this.link = link;
     this.status = status;
     setStatusIsSet(true);
+    this.count = count;
+    setCountIsSet(true);
   }
 
   /**
@@ -290,6 +303,7 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
       this.link = other.link;
     }
     this.status = other.status;
+    this.count = other.count;
   }
 
   public Navigate deepCopy() {
@@ -321,6 +335,8 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
     this.link = "";
 
     this.status = 1;
+
+    this.count = 0;
 
   }
 
@@ -637,6 +653,28 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
     __isset_bit_vector.set(__STATUS_ISSET_ID, value);
   }
 
+  public int getCount() {
+    return this.count;
+  }
+
+  public void setCount(int count) {
+    this.count = count;
+    setCountIsSet(true);
+  }
+
+  public void unsetCount() {
+    __isset_bit_vector.clear(__COUNT_ISSET_ID);
+  }
+
+  /** Returns true if field count is set (has been asigned a value) and false otherwise */
+  public boolean isSetCount() {
+    return __isset_bit_vector.get(__COUNT_ISSET_ID);
+  }
+
+  public void setCountIsSet(boolean value) {
+    __isset_bit_vector.set(__COUNT_ISSET_ID, value);
+  }
+
   public void setFieldValue(_Fields field, Object value) {
     switch (field) {
     case ID:
@@ -751,6 +789,14 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
       }
       break;
 
+    case COUNT:
+      if (value == null) {
+        unsetCount();
+      } else {
+        setCount((Integer)value);
+      }
+      break;
+
     }
   }
 
@@ -798,6 +844,9 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
     case STATUS:
       return new Integer(getStatus());
 
+    case COUNT:
+      return new Integer(getCount());
+
     }
     throw new IllegalStateException();
   }
@@ -837,6 +886,8 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
       return isSetLink();
     case STATUS:
       return isSetStatus();
+    case COUNT:
+      return isSetCount();
     }
     throw new IllegalStateException();
   }
@@ -977,6 +1028,15 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
       if (!(this_present_status && that_present_status))
         return false;
       if (this.status != that.status)
+        return false;
+    }
+
+    boolean this_present_count = true;
+    boolean that_present_count = true;
+    if (this_present_count || that_present_count) {
+      if (!(this_present_count && that_present_count))
+        return false;
+      if (this.count != that.count)
         return false;
     }
 
@@ -1136,6 +1196,16 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
         return lastComparison;
       }
     }
+    lastComparison = Boolean.valueOf(isSetCount()).compareTo(typedOther.isSetCount());
+    if (lastComparison != 0) {
+      return lastComparison;
+    }
+    if (isSetCount()) {
+      lastComparison = TBaseHelper.compareTo(this.count, typedOther.count);
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+    }
     return 0;
   }
 
@@ -1260,6 +1330,14 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
             TProtocolUtil.skip(iprot, field.type);
           }
           break;
+        case 15: // COUNT
+          if (field.type == TType.I32) {
+            this.count = iprot.readI32();
+            setCountIsSet(true);
+          } else { 
+            TProtocolUtil.skip(iprot, field.type);
+          }
+          break;
         default:
           TProtocolUtil.skip(iprot, field.type);
       }
@@ -1324,6 +1402,9 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
     }
     oprot.writeFieldBegin(STATUS_FIELD_DESC);
     oprot.writeI32(this.status);
+    oprot.writeFieldEnd();
+    oprot.writeFieldBegin(COUNT_FIELD_DESC);
+    oprot.writeI32(this.count);
     oprot.writeFieldEnd();
     oprot.writeFieldStop();
     oprot.writeStructEnd();
@@ -1408,6 +1489,10 @@ public class Navigate implements TBase<Navigate, Navigate._Fields>, java.io.Seri
     if (!first) sb.append(", ");
     sb.append("status:");
     sb.append(this.status);
+    first = false;
+    if (!first) sb.append(", ");
+    sb.append("count:");
+    sb.append(this.count);
     first = false;
     sb.append(")");
     return sb.toString();
