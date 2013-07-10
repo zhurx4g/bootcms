@@ -22,8 +22,7 @@ struct Category {
     11: i64 createTime = 0;
     12: i64 updateTime = 0;
     13: string link = '';
-    14: i64 templateId = 0;
-    15: i32 status = 1;
+    14: i32 status = 1;
 }
 
 struct Navigate {
