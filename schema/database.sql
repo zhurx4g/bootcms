@@ -61,7 +61,6 @@ CREATE TABLE `bootstrapx_category` (
   `createTime` datetime NOT NULL,
   `updateTime` datetime NOT NULL,
   `link` varchar(512) NOT NULL,
-  `templateId` bigint(20) DEFAULT NULL,
   `status` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=99411220 DEFAULT CHARSET=utf8;

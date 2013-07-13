@@ -2,7 +2,6 @@ package com.googlecode.bootstrapx;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -13,8 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.app.VelocityEngine;
 import org.springframework.ui.velocity.VelocityEngineUtils;
 
-import com.googlecode.bootstrapx.model.FriendLink;
-import com.googlecode.bootstrapx.model.Navigate;
+import com.googlecode.bootstrapx.model.Category;
 
 public class CodeFactory {
 
@@ -53,14 +51,14 @@ public class CodeFactory {
 		System.out.println(VelocityEngineUtils.mergeTemplateIntoString(engine, "common/template.vm", "utf-8", model));
 	}
 	public static void main(String[] args) {
-		Navigate._Fields[] fields = Navigate._Fields.values();
+		Category._Fields[] fields = Category._Fields.values();
 		for(int i=0;i<fields.length;i++,System.out.print(",")){
 			System.out.print(fields[i].getFieldName());
 		}
 		System.out.println();
 		for(int i=0;i<fields.length;i++,System.out.print(",")){
-			System.out.print(":navigate."+fields[i].getFieldName());
+			System.out.print(":category."+fields[i].getFieldName());
 		}
-		generate(FriendLink.class, FriendLink.class, "admin",null);
+		//generate(FriendLink.class, FriendLink.class, "admin",null);
 	}
 }

@@ -42,8 +42,7 @@ public class Category implements TBase<Category, Category._Fields>, java.io.Seri
   private static final TField CREATE_TIME_FIELD_DESC = new TField("createTime", TType.I64, (short)11);
   private static final TField UPDATE_TIME_FIELD_DESC = new TField("updateTime", TType.I64, (short)12);
   private static final TField LINK_FIELD_DESC = new TField("link", TType.STRING, (short)13);
-  private static final TField TEMPLATE_ID_FIELD_DESC = new TField("templateId", TType.I64, (short)14);
-  private static final TField STATUS_FIELD_DESC = new TField("status", TType.I32, (short)15);
+  private static final TField STATUS_FIELD_DESC = new TField("status", TType.I32, (short)14);
 
   private int id;
   private int parentId;
@@ -58,7 +57,6 @@ public class Category implements TBase<Category, Category._Fields>, java.io.Seri
   private long createTime;
   private long updateTime;
   private String link;
-  private long templateId;
   private int status;
 
   /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
@@ -76,8 +74,7 @@ public class Category implements TBase<Category, Category._Fields>, java.io.Seri
     CREATE_TIME((short)11, "createTime"),
     UPDATE_TIME((short)12, "updateTime"),
     LINK((short)13, "link"),
-    TEMPLATE_ID((short)14, "templateId"),
-    STATUS((short)15, "status");
+    STATUS((short)14, "status");
 
     private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
 
@@ -118,9 +115,7 @@ public class Category implements TBase<Category, Category._Fields>, java.io.Seri
           return UPDATE_TIME;
         case 13: // LINK
           return LINK;
-        case 14: // TEMPLATE_ID
-          return TEMPLATE_ID;
-        case 15: // STATUS
+        case 14: // STATUS
           return STATUS;
         default:
           return null;
@@ -170,9 +165,8 @@ public class Category implements TBase<Category, Category._Fields>, java.io.Seri
   private static final int __UPDATERID_ISSET_ID = 5;
   private static final int __CREATETIME_ISSET_ID = 6;
   private static final int __UPDATETIME_ISSET_ID = 7;
-  private static final int __TEMPLATEID_ISSET_ID = 8;
-  private static final int __STATUS_ISSET_ID = 9;
-  private BitSet __isset_bit_vector = new BitSet(10);
+  private static final int __STATUS_ISSET_ID = 8;
+  private BitSet __isset_bit_vector = new BitSet(9);
 
   public static final Map<_Fields, FieldMetaData> metaDataMap;
   static {
@@ -203,8 +197,6 @@ public class Category implements TBase<Category, Category._Fields>, java.io.Seri
         new FieldValueMetaData(TType.I64)));
     tmpMap.put(_Fields.LINK, new FieldMetaData("link", TFieldRequirementType.DEFAULT, 
         new FieldValueMetaData(TType.STRING)));
-    tmpMap.put(_Fields.TEMPLATE_ID, new FieldMetaData("templateId", TFieldRequirementType.DEFAULT, 
-        new FieldValueMetaData(TType.I64)));
     tmpMap.put(_Fields.STATUS, new FieldMetaData("status", TFieldRequirementType.DEFAULT, 
         new FieldValueMetaData(TType.I32)));
     metaDataMap = Collections.unmodifiableMap(tmpMap);
@@ -221,8 +213,6 @@ public class Category implements TBase<Category, Category._Fields>, java.io.Seri
     this.updateTime = 0L;
 
     this.link = "";
-
-    this.templateId = 0L;
 
     this.status = 1;
 
@@ -242,7 +232,6 @@ public class Category implements TBase<Category, Category._Fields>, java.io.Seri
     long createTime,
     long updateTime,
     String link,
-    long templateId,
     int status)
   {
     this();
@@ -267,8 +256,6 @@ public class Category implements TBase<Category, Category._Fields>, java.io.Seri
     this.updateTime = updateTime;
     setUpdateTimeIsSet(true);
     this.link = link;
-    this.templateId = templateId;
-    setTemplateIdIsSet(true);
     this.status = status;
     setStatusIsSet(true);
   }
@@ -302,7 +289,6 @@ public class Category implements TBase<Category, Category._Fields>, java.io.Seri
     if (other.isSetLink()) {
       this.link = other.link;
     }
-    this.templateId = other.templateId;
     this.status = other.status;
   }
 
@@ -333,8 +319,6 @@ public class Category implements TBase<Category, Category._Fields>, java.io.Seri
     this.updateTime = 0L;
 
     this.link = "";
-
-    this.templateId = 0L;
 
     this.status = 1;
 
@@ -631,28 +615,6 @@ public class Category implements TBase<Category, Category._Fields>, java.io.Seri
     }
   }
 
-  public long getTemplateId() {
-    return this.templateId;
-  }
-
-  public void setTemplateId(long templateId) {
-    this.templateId = templateId;
-    setTemplateIdIsSet(true);
-  }
-
-  public void unsetTemplateId() {
-    __isset_bit_vector.clear(__TEMPLATEID_ISSET_ID);
-  }
-
-  /** Returns true if field templateId is set (has been asigned a value) and false otherwise */
-  public boolean isSetTemplateId() {
-    return __isset_bit_vector.get(__TEMPLATEID_ISSET_ID);
-  }
-
-  public void setTemplateIdIsSet(boolean value) {
-    __isset_bit_vector.set(__TEMPLATEID_ISSET_ID, value);
-  }
-
   public int getStatus() {
     return this.status;
   }
@@ -781,14 +743,6 @@ public class Category implements TBase<Category, Category._Fields>, java.io.Seri
       }
       break;
 
-    case TEMPLATE_ID:
-      if (value == null) {
-        unsetTemplateId();
-      } else {
-        setTemplateId((Long)value);
-      }
-      break;
-
     case STATUS:
       if (value == null) {
         unsetStatus();
@@ -841,9 +795,6 @@ public class Category implements TBase<Category, Category._Fields>, java.io.Seri
     case LINK:
       return getLink();
 
-    case TEMPLATE_ID:
-      return new Long(getTemplateId());
-
     case STATUS:
       return new Integer(getStatus());
 
@@ -884,8 +835,6 @@ public class Category implements TBase<Category, Category._Fields>, java.io.Seri
       return isSetUpdateTime();
     case LINK:
       return isSetLink();
-    case TEMPLATE_ID:
-      return isSetTemplateId();
     case STATUS:
       return isSetStatus();
     }
@@ -1019,15 +968,6 @@ public class Category implements TBase<Category, Category._Fields>, java.io.Seri
       if (!(this_present_link && that_present_link))
         return false;
       if (!this.link.equals(that.link))
-        return false;
-    }
-
-    boolean this_present_templateId = true;
-    boolean that_present_templateId = true;
-    if (this_present_templateId || that_present_templateId) {
-      if (!(this_present_templateId && that_present_templateId))
-        return false;
-      if (this.templateId != that.templateId)
         return false;
     }
 
@@ -1186,16 +1126,6 @@ public class Category implements TBase<Category, Category._Fields>, java.io.Seri
         return lastComparison;
       }
     }
-    lastComparison = Boolean.valueOf(isSetTemplateId()).compareTo(typedOther.isSetTemplateId());
-    if (lastComparison != 0) {
-      return lastComparison;
-    }
-    if (isSetTemplateId()) {
-      lastComparison = TBaseHelper.compareTo(this.templateId, typedOther.templateId);
-      if (lastComparison != 0) {
-        return lastComparison;
-      }
-    }
     lastComparison = Boolean.valueOf(isSetStatus()).compareTo(typedOther.isSetStatus());
     if (lastComparison != 0) {
       return lastComparison;
@@ -1322,15 +1252,7 @@ public class Category implements TBase<Category, Category._Fields>, java.io.Seri
             TProtocolUtil.skip(iprot, field.type);
           }
           break;
-        case 14: // TEMPLATE_ID
-          if (field.type == TType.I64) {
-            this.templateId = iprot.readI64();
-            setTemplateIdIsSet(true);
-          } else { 
-            TProtocolUtil.skip(iprot, field.type);
-          }
-          break;
-        case 15: // STATUS
+        case 14: // STATUS
           if (field.type == TType.I32) {
             this.status = iprot.readI32();
             setStatusIsSet(true);
@@ -1400,9 +1322,6 @@ public class Category implements TBase<Category, Category._Fields>, java.io.Seri
       oprot.writeString(this.link);
       oprot.writeFieldEnd();
     }
-    oprot.writeFieldBegin(TEMPLATE_ID_FIELD_DESC);
-    oprot.writeI64(this.templateId);
-    oprot.writeFieldEnd();
     oprot.writeFieldBegin(STATUS_FIELD_DESC);
     oprot.writeI32(this.status);
     oprot.writeFieldEnd();
@@ -1485,10 +1404,6 @@ public class Category implements TBase<Category, Category._Fields>, java.io.Seri
     } else {
       sb.append(this.link);
     }
-    first = false;
-    if (!first) sb.append(", ");
-    sb.append("templateId:");
-    sb.append(this.templateId);
     first = false;
     if (!first) sb.append(", ");
     sb.append("status:");

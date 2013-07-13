@@ -1,40 +1,14 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="brand" href="$!{contextPath}/">$!C.name.value</a>
-      <div class="nav-collapse collapse">
-        <ul class="nav">
+<div class="masthead">
+        <h3 class="muted">Project name</h3>
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <ul class="nav">
 #foreach($nav in $navigateList)
-#if($nav.count==0)
-          <li><a href="$!nav.link">$!nav.name</a></li>
-#else
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">$!nav.name <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-#foreach($subNav in $navigateListMap.get($nav.id))
-              <li><a href="$subNav.link">$subNav.name</a></li>
+                <li><a href="$!nav.link">$!nav.name</a></li>
 #end
-              <!--
-			  <li class="divider"></li>
-              <li class="nav-header">Nav header</li>
-			  -->
-            </ul>
-          </li>
-#end
-#end
-
-        </ul>
-        <form class="navbar-form pull-right">
-          <input class="span2" type="text" placeholder="邮箱">
-          <input class="span2" type="password" placeholder="密码">
-          <button type="submit" class="btn">登录</button>
-        </form>
-      </div><!--/.nav-collapse -->
-    </div>
-  </div>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.navbar -->
 </div>
