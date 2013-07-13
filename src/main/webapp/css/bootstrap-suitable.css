@@ -8,6 +8,9 @@
     background-color: #FFFFFF;
     background-image: -moz-linear-gradient(center top , #FFFFFF, #FFFFFF);
 }
+.navbar {
+	margin-bottom: 0px;
+}
 .navbar .brand {
     color: #0F0F0F;
 }
@@ -15,6 +18,11 @@
 .navbar .nav .dropdown-toggle .caret, .navbar .nav .open.dropdown .caret {
 	border-bottom-color: #000000;
     border-top-color: #000000;
+}
+.navbar .nav > li {
+    display: block;
+    float: left;
+    text-align: center;
 }
 .navbar .nav > li > a:hover {
     background-color: transparent;
