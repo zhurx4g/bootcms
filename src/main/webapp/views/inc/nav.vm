@@ -1,5 +1,27 @@
+<div style="background-color:#DCDCDC;width:100%;">
+	<div class="container">
+				<table style="width:100%">
+				<tr><td align="left">
+					<div class="">
+						<p class="headText"></p>
+					</div></td>
+					<td align="right"><div class="">
+						<div class="headLink" style="float: right">
+							<a href="#login">会员登录</a>|
+							<a target="_blank" href="/Charge/Reg.asp">注册</a>|
+							<a href="#" onclick="setHome(this, window.location)">设为首页</a>|
+							<a href="#" onclick="addFavorite(window.location,'孙老师课堂')">加入收藏</a>|
+							<a href="#">在线中心</a>|
+							<a href="#">帮助中心</a>|
+							<a href="/About/">联系我们</a>
+						</div>
+					</div></td>
+					</tr>
+				</table>
+	</div>
+</div>
 <div class="masthead container">
-        <h3 class="muted">$!C.name.value</h3>
+        <h3 class="muted"><a><img src="$!{contextPath}/images/logo.jpeg"/></a>$!C.name.value</h3>
         <div class="navbar">
           <div class="navbar-inner">
             <div class="container">

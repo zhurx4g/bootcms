@@ -82,7 +82,6 @@
             </div>
 #parse('views/inc/footer.vm')
         </div>
-        <script src="${contextPath}/js/jquery-1.9.1.min.js"></script>
-        <script src="${contextPath}/${bootstrap_home}/js/bootstrap.js?ver=$revxxx$" type="text/javascript"></script>
+#parse('views/inc/footerJs.vm')
     </body>
 </html>
