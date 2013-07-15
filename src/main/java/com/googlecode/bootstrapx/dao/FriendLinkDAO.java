@@ -19,7 +19,7 @@ public interface FriendLinkDAO {
 	@SQL("select " + FIELDS + " from " + TABLE + " where status=:status #if (:orderBy != null) { order by ##(:orderBy)} limit :offset,:size")
 	public List<FriendLink> select(@SQLParam("offset") int offset, @SQLParam("size") int size, @SQLParam("status") int status, @SQLParam("orderBy") String orderBy);
 
-	@SQL("replace into " + TABLE + FIELDS_REPLACE + " values(:friendLink.id,:friendLink.name,:friendLink.sequence,:friendLink.weight,:friendLink.icon,:friendLink.image,:friendLink.description,:friendLink.creatorId,:friendLink.updaterId,:friendLink.createTime,:friendLink.updateTime,:friendLink.link,:friendLink.status)")
+	@SQL("replace into " + TABLE + FIELDS_REPLACE + " values(null,:friendLink.name,:friendLink.sequence,:friendLink.weight,:friendLink.icon,:friendLink.image,:friendLink.description,:friendLink.creatorId,:friendLink.updaterId,:friendLink.createTime,:friendLink.updateTime,:friendLink.link,:friendLink.status)")
 	public int addForRows(@SQLParam("friendLink") FriendLink friendLink);
 
 	@ReturnGeneratedKeys

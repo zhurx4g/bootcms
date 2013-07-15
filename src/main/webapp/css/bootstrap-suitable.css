@@ -11,6 +11,7 @@ body {
     min-height: 100%;
     position: relative;
 }
+
 .navbar-inner {
     background-color: #F30012;
     background-image: -moz-linear-gradient(center top , #F30012, #F30012);
