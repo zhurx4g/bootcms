@@ -13,6 +13,8 @@ import org.apache.velocity.app.VelocityEngine;
 import org.springframework.ui.velocity.VelocityEngineUtils;
 
 import com.googlecode.bootstrapx.model.Category;
+import com.googlecode.bootstrapx.model.SystemLog;
+import com.xiaomi.miui.spbook.model.SpbPhone;
 
 public class CodeFactory {
 
@@ -51,14 +53,14 @@ public class CodeFactory {
 		System.out.println(VelocityEngineUtils.mergeTemplateIntoString(engine, "common/template.vm", "utf-8", model));
 	}
 	public static void main(String[] args) {
-		Category._Fields[] fields = Category._Fields.values();
+		SystemLog._Fields[] fields = SystemLog._Fields.values();
 		for(int i=0;i<fields.length;i++,System.out.print(",")){
 			System.out.print(fields[i].getFieldName());
 		}
 		System.out.println();
 		for(int i=0;i<fields.length;i++,System.out.print(",")){
-			System.out.print(":category."+fields[i].getFieldName());
+			System.out.print(":systemLog."+fields[i].getFieldName());
 		}
-		//generate(FriendLink.class, FriendLink.class, "admin",null);
+		generate(SystemLog.class, SystemLog.class, "admin/spbook","systemLog");
 	}
 }

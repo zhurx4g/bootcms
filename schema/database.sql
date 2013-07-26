@@ -101,3 +101,19 @@ CREATE TABLE `bootstrapx_friendlink` (
   `status` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=99411210 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `common_operation_log` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `featureId` int(11) DEFAULT NULL comment 'feature id',
+  `recordId` bigint(20) DEFAULT NULL,
+  `userId` int(11) DEFAULT NULL,
+  `ip` varchar(32)  DEFAULT NULL,
+  `action` int(11) DEFAULT NULL comment 'add:0 update:1 delete:2 lock:3 unlock:4',
+  `description` text,
+  `createTime` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `updateTime` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `status` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  key `userididx` (`userId`),
+  key `timeidx` (`updateTime`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

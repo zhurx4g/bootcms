@@ -46,12 +46,15 @@ struct SubSystem {
 
 struct SystemLog {
     1: i64 id;
-    2: i64 createTime = 0;//在xxx时间
-    3: string ip = '';//来自IP的
-    4: i32 userId = 0;//xx用户
-    5: string target;//对xxx表格
-    6: string action;//执行  添加/删除/更新/登录/退出  操作
-    7: string description;//详细描述:
+    2: i32 featureId;
+    3: i64 recordId;
+    4: i32 userId;
+    5: string ip;
+    6: i32 action;
+    7: string description;
+    8: i64 createTime;
+    9: i64 updateTime;
+    10: i32 status;
 }
 
 struct Privilege {

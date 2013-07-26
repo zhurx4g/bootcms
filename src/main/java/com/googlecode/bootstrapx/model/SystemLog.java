@@ -30,30 +30,39 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
   private static final TStruct STRUCT_DESC = new TStruct("SystemLog");
 
   private static final TField ID_FIELD_DESC = new TField("id", TType.I64, (short)1);
-  private static final TField CREATE_TIME_FIELD_DESC = new TField("createTime", TType.I64, (short)2);
-  private static final TField IP_FIELD_DESC = new TField("ip", TType.STRING, (short)3);
+  private static final TField FEATURE_ID_FIELD_DESC = new TField("featureId", TType.I32, (short)2);
+  private static final TField RECORD_ID_FIELD_DESC = new TField("recordId", TType.I64, (short)3);
   private static final TField USER_ID_FIELD_DESC = new TField("userId", TType.I32, (short)4);
-  private static final TField TARGET_FIELD_DESC = new TField("target", TType.STRING, (short)5);
-  private static final TField ACTION_FIELD_DESC = new TField("action", TType.STRING, (short)6);
+  private static final TField IP_FIELD_DESC = new TField("ip", TType.STRING, (short)5);
+  private static final TField ACTION_FIELD_DESC = new TField("action", TType.I32, (short)6);
   private static final TField DESCRIPTION_FIELD_DESC = new TField("description", TType.STRING, (short)7);
+  private static final TField CREATE_TIME_FIELD_DESC = new TField("createTime", TType.I64, (short)8);
+  private static final TField UPDATE_TIME_FIELD_DESC = new TField("updateTime", TType.I64, (short)9);
+  private static final TField STATUS_FIELD_DESC = new TField("status", TType.I32, (short)10);
 
   private long id;
-  private long createTime;
-  private String ip;
+  private int featureId;
+  private long recordId;
   private int userId;
-  private String target;
-  private String action;
+  private String ip;
+  private int action;
   private String description;
+  private long createTime;
+  private long updateTime;
+  private int status;
 
   /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
   public enum _Fields implements TFieldIdEnum {
     ID((short)1, "id"),
-    CREATE_TIME((short)2, "createTime"),
-    IP((short)3, "ip"),
+    FEATURE_ID((short)2, "featureId"),
+    RECORD_ID((short)3, "recordId"),
     USER_ID((short)4, "userId"),
-    TARGET((short)5, "target"),
+    IP((short)5, "ip"),
     ACTION((short)6, "action"),
-    DESCRIPTION((short)7, "description");
+    DESCRIPTION((short)7, "description"),
+    CREATE_TIME((short)8, "createTime"),
+    UPDATE_TIME((short)9, "updateTime"),
+    STATUS((short)10, "status");
 
     private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
 
@@ -70,18 +79,24 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
       switch(fieldId) {
         case 1: // ID
           return ID;
-        case 2: // CREATE_TIME
-          return CREATE_TIME;
-        case 3: // IP
-          return IP;
+        case 2: // FEATURE_ID
+          return FEATURE_ID;
+        case 3: // RECORD_ID
+          return RECORD_ID;
         case 4: // USER_ID
           return USER_ID;
-        case 5: // TARGET
-          return TARGET;
+        case 5: // IP
+          return IP;
         case 6: // ACTION
           return ACTION;
         case 7: // DESCRIPTION
           return DESCRIPTION;
+        case 8: // CREATE_TIME
+          return CREATE_TIME;
+        case 9: // UPDATE_TIME
+          return UPDATE_TIME;
+        case 10: // STATUS
+          return STATUS;
         default:
           return null;
       }
@@ -123,60 +138,76 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
 
   // isset id assignments
   private static final int __ID_ISSET_ID = 0;
-  private static final int __CREATETIME_ISSET_ID = 1;
-  private static final int __USERID_ISSET_ID = 2;
-  private BitSet __isset_bit_vector = new BitSet(3);
+  private static final int __FEATUREID_ISSET_ID = 1;
+  private static final int __RECORDID_ISSET_ID = 2;
+  private static final int __USERID_ISSET_ID = 3;
+  private static final int __ACTION_ISSET_ID = 4;
+  private static final int __CREATETIME_ISSET_ID = 5;
+  private static final int __UPDATETIME_ISSET_ID = 6;
+  private static final int __STATUS_ISSET_ID = 7;
+  private BitSet __isset_bit_vector = new BitSet(8);
 
   public static final Map<_Fields, FieldMetaData> metaDataMap;
   static {
     Map<_Fields, FieldMetaData> tmpMap = new EnumMap<_Fields, FieldMetaData>(_Fields.class);
     tmpMap.put(_Fields.ID, new FieldMetaData("id", TFieldRequirementType.DEFAULT, 
         new FieldValueMetaData(TType.I64)));
-    tmpMap.put(_Fields.CREATE_TIME, new FieldMetaData("createTime", TFieldRequirementType.DEFAULT, 
+    tmpMap.put(_Fields.FEATURE_ID, new FieldMetaData("featureId", TFieldRequirementType.DEFAULT, 
+        new FieldValueMetaData(TType.I32)));
+    tmpMap.put(_Fields.RECORD_ID, new FieldMetaData("recordId", TFieldRequirementType.DEFAULT, 
         new FieldValueMetaData(TType.I64)));
-    tmpMap.put(_Fields.IP, new FieldMetaData("ip", TFieldRequirementType.DEFAULT, 
-        new FieldValueMetaData(TType.STRING)));
     tmpMap.put(_Fields.USER_ID, new FieldMetaData("userId", TFieldRequirementType.DEFAULT, 
         new FieldValueMetaData(TType.I32)));
-    tmpMap.put(_Fields.TARGET, new FieldMetaData("target", TFieldRequirementType.DEFAULT, 
+    tmpMap.put(_Fields.IP, new FieldMetaData("ip", TFieldRequirementType.DEFAULT, 
         new FieldValueMetaData(TType.STRING)));
     tmpMap.put(_Fields.ACTION, new FieldMetaData("action", TFieldRequirementType.DEFAULT, 
-        new FieldValueMetaData(TType.STRING)));
+        new FieldValueMetaData(TType.I32)));
     tmpMap.put(_Fields.DESCRIPTION, new FieldMetaData("description", TFieldRequirementType.DEFAULT, 
         new FieldValueMetaData(TType.STRING)));
+    tmpMap.put(_Fields.CREATE_TIME, new FieldMetaData("createTime", TFieldRequirementType.DEFAULT, 
+        new FieldValueMetaData(TType.I64)));
+    tmpMap.put(_Fields.UPDATE_TIME, new FieldMetaData("updateTime", TFieldRequirementType.DEFAULT, 
+        new FieldValueMetaData(TType.I64)));
+    tmpMap.put(_Fields.STATUS, new FieldMetaData("status", TFieldRequirementType.DEFAULT, 
+        new FieldValueMetaData(TType.I32)));
     metaDataMap = Collections.unmodifiableMap(tmpMap);
     FieldMetaData.addStructMetaDataMap(SystemLog.class, metaDataMap);
   }
 
   public SystemLog() {
-    this.createTime = 0L;
-
-    this.ip = "";
-
-    this.userId = 0;
-
   }
 
   public SystemLog(
     long id,
-    long createTime,
-    String ip,
+    int featureId,
+    long recordId,
     int userId,
-    String target,
-    String action,
-    String description)
+    String ip,
+    int action,
+    String description,
+    long createTime,
+    long updateTime,
+    int status)
   {
     this();
     this.id = id;
     setIdIsSet(true);
-    this.createTime = createTime;
-    setCreateTimeIsSet(true);
-    this.ip = ip;
+    this.featureId = featureId;
+    setFeatureIdIsSet(true);
+    this.recordId = recordId;
+    setRecordIdIsSet(true);
     this.userId = userId;
     setUserIdIsSet(true);
-    this.target = target;
+    this.ip = ip;
     this.action = action;
+    setActionIsSet(true);
     this.description = description;
+    this.createTime = createTime;
+    setCreateTimeIsSet(true);
+    this.updateTime = updateTime;
+    setUpdateTimeIsSet(true);
+    this.status = status;
+    setStatusIsSet(true);
   }
 
   /**
@@ -186,20 +217,19 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
     __isset_bit_vector.clear();
     __isset_bit_vector.or(other.__isset_bit_vector);
     this.id = other.id;
-    this.createTime = other.createTime;
+    this.featureId = other.featureId;
+    this.recordId = other.recordId;
+    this.userId = other.userId;
     if (other.isSetIp()) {
       this.ip = other.ip;
     }
-    this.userId = other.userId;
-    if (other.isSetTarget()) {
-      this.target = other.target;
-    }
-    if (other.isSetAction()) {
-      this.action = other.action;
-    }
+    this.action = other.action;
     if (other.isSetDescription()) {
       this.description = other.description;
     }
+    this.createTime = other.createTime;
+    this.updateTime = other.updateTime;
+    this.status = other.status;
   }
 
   public SystemLog deepCopy() {
@@ -210,15 +240,22 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
   public void clear() {
     setIdIsSet(false);
     this.id = 0;
-    this.createTime = 0L;
-
-    this.ip = "";
-
+    setFeatureIdIsSet(false);
+    this.featureId = 0;
+    setRecordIdIsSet(false);
+    this.recordId = 0;
+    setUserIdIsSet(false);
     this.userId = 0;
-
-    this.target = null;
-    this.action = null;
+    this.ip = null;
+    setActionIsSet(false);
+    this.action = 0;
     this.description = null;
+    setCreateTimeIsSet(false);
+    this.createTime = 0;
+    setUpdateTimeIsSet(false);
+    this.updateTime = 0;
+    setStatusIsSet(false);
+    this.status = 0;
   }
 
   public long getId() {
@@ -243,26 +280,70 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
     __isset_bit_vector.set(__ID_ISSET_ID, value);
   }
 
-  public long getCreateTime() {
-    return this.createTime;
+  public int getFeatureId() {
+    return this.featureId;
   }
 
-  public void setCreateTime(long createTime) {
-    this.createTime = createTime;
-    setCreateTimeIsSet(true);
+  public void setFeatureId(int featureId) {
+    this.featureId = featureId;
+    setFeatureIdIsSet(true);
   }
 
-  public void unsetCreateTime() {
-    __isset_bit_vector.clear(__CREATETIME_ISSET_ID);
+  public void unsetFeatureId() {
+    __isset_bit_vector.clear(__FEATUREID_ISSET_ID);
   }
 
-  /** Returns true if field createTime is set (has been asigned a value) and false otherwise */
-  public boolean isSetCreateTime() {
-    return __isset_bit_vector.get(__CREATETIME_ISSET_ID);
+  /** Returns true if field featureId is set (has been asigned a value) and false otherwise */
+  public boolean isSetFeatureId() {
+    return __isset_bit_vector.get(__FEATUREID_ISSET_ID);
   }
 
-  public void setCreateTimeIsSet(boolean value) {
-    __isset_bit_vector.set(__CREATETIME_ISSET_ID, value);
+  public void setFeatureIdIsSet(boolean value) {
+    __isset_bit_vector.set(__FEATUREID_ISSET_ID, value);
+  }
+
+  public long getRecordId() {
+    return this.recordId;
+  }
+
+  public void setRecordId(long recordId) {
+    this.recordId = recordId;
+    setRecordIdIsSet(true);
+  }
+
+  public void unsetRecordId() {
+    __isset_bit_vector.clear(__RECORDID_ISSET_ID);
+  }
+
+  /** Returns true if field recordId is set (has been asigned a value) and false otherwise */
+  public boolean isSetRecordId() {
+    return __isset_bit_vector.get(__RECORDID_ISSET_ID);
+  }
+
+  public void setRecordIdIsSet(boolean value) {
+    __isset_bit_vector.set(__RECORDID_ISSET_ID, value);
+  }
+
+  public int getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(int userId) {
+    this.userId = userId;
+    setUserIdIsSet(true);
+  }
+
+  public void unsetUserId() {
+    __isset_bit_vector.clear(__USERID_ISSET_ID);
+  }
+
+  /** Returns true if field userId is set (has been asigned a value) and false otherwise */
+  public boolean isSetUserId() {
+    return __isset_bit_vector.get(__USERID_ISSET_ID);
+  }
+
+  public void setUserIdIsSet(boolean value) {
+    __isset_bit_vector.set(__USERID_ISSET_ID, value);
   }
 
   public String getIp() {
@@ -288,72 +369,26 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
     }
   }
 
-  public int getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(int userId) {
-    this.userId = userId;
-    setUserIdIsSet(true);
-  }
-
-  public void unsetUserId() {
-    __isset_bit_vector.clear(__USERID_ISSET_ID);
-  }
-
-  /** Returns true if field userId is set (has been asigned a value) and false otherwise */
-  public boolean isSetUserId() {
-    return __isset_bit_vector.get(__USERID_ISSET_ID);
-  }
-
-  public void setUserIdIsSet(boolean value) {
-    __isset_bit_vector.set(__USERID_ISSET_ID, value);
-  }
-
-  public String getTarget() {
-    return this.target;
-  }
-
-  public void setTarget(String target) {
-    this.target = target;
-  }
-
-  public void unsetTarget() {
-    this.target = null;
-  }
-
-  /** Returns true if field target is set (has been asigned a value) and false otherwise */
-  public boolean isSetTarget() {
-    return this.target != null;
-  }
-
-  public void setTargetIsSet(boolean value) {
-    if (!value) {
-      this.target = null;
-    }
-  }
-
-  public String getAction() {
+  public int getAction() {
     return this.action;
   }
 
-  public void setAction(String action) {
+  public void setAction(int action) {
     this.action = action;
+    setActionIsSet(true);
   }
 
   public void unsetAction() {
-    this.action = null;
+    __isset_bit_vector.clear(__ACTION_ISSET_ID);
   }
 
   /** Returns true if field action is set (has been asigned a value) and false otherwise */
   public boolean isSetAction() {
-    return this.action != null;
+    return __isset_bit_vector.get(__ACTION_ISSET_ID);
   }
 
   public void setActionIsSet(boolean value) {
-    if (!value) {
-      this.action = null;
-    }
+    __isset_bit_vector.set(__ACTION_ISSET_ID, value);
   }
 
   public String getDescription() {
@@ -379,6 +414,72 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
     }
   }
 
+  public long getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(long createTime) {
+    this.createTime = createTime;
+    setCreateTimeIsSet(true);
+  }
+
+  public void unsetCreateTime() {
+    __isset_bit_vector.clear(__CREATETIME_ISSET_ID);
+  }
+
+  /** Returns true if field createTime is set (has been asigned a value) and false otherwise */
+  public boolean isSetCreateTime() {
+    return __isset_bit_vector.get(__CREATETIME_ISSET_ID);
+  }
+
+  public void setCreateTimeIsSet(boolean value) {
+    __isset_bit_vector.set(__CREATETIME_ISSET_ID, value);
+  }
+
+  public long getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(long updateTime) {
+    this.updateTime = updateTime;
+    setUpdateTimeIsSet(true);
+  }
+
+  public void unsetUpdateTime() {
+    __isset_bit_vector.clear(__UPDATETIME_ISSET_ID);
+  }
+
+  /** Returns true if field updateTime is set (has been asigned a value) and false otherwise */
+  public boolean isSetUpdateTime() {
+    return __isset_bit_vector.get(__UPDATETIME_ISSET_ID);
+  }
+
+  public void setUpdateTimeIsSet(boolean value) {
+    __isset_bit_vector.set(__UPDATETIME_ISSET_ID, value);
+  }
+
+  public int getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(int status) {
+    this.status = status;
+    setStatusIsSet(true);
+  }
+
+  public void unsetStatus() {
+    __isset_bit_vector.clear(__STATUS_ISSET_ID);
+  }
+
+  /** Returns true if field status is set (has been asigned a value) and false otherwise */
+  public boolean isSetStatus() {
+    return __isset_bit_vector.get(__STATUS_ISSET_ID);
+  }
+
+  public void setStatusIsSet(boolean value) {
+    __isset_bit_vector.set(__STATUS_ISSET_ID, value);
+  }
+
   public void setFieldValue(_Fields field, Object value) {
     switch (field) {
     case ID:
@@ -389,19 +490,19 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
       }
       break;
 
-    case CREATE_TIME:
+    case FEATURE_ID:
       if (value == null) {
-        unsetCreateTime();
+        unsetFeatureId();
       } else {
-        setCreateTime((Long)value);
+        setFeatureId((Integer)value);
       }
       break;
 
-    case IP:
+    case RECORD_ID:
       if (value == null) {
-        unsetIp();
+        unsetRecordId();
       } else {
-        setIp((String)value);
+        setRecordId((Long)value);
       }
       break;
 
@@ -413,11 +514,11 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
       }
       break;
 
-    case TARGET:
+    case IP:
       if (value == null) {
-        unsetTarget();
+        unsetIp();
       } else {
-        setTarget((String)value);
+        setIp((String)value);
       }
       break;
 
@@ -425,7 +526,7 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
       if (value == null) {
         unsetAction();
       } else {
-        setAction((String)value);
+        setAction((Integer)value);
       }
       break;
 
@@ -437,6 +538,30 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
       }
       break;
 
+    case CREATE_TIME:
+      if (value == null) {
+        unsetCreateTime();
+      } else {
+        setCreateTime((Long)value);
+      }
+      break;
+
+    case UPDATE_TIME:
+      if (value == null) {
+        unsetUpdateTime();
+      } else {
+        setUpdateTime((Long)value);
+      }
+      break;
+
+    case STATUS:
+      if (value == null) {
+        unsetStatus();
+      } else {
+        setStatus((Integer)value);
+      }
+      break;
+
     }
   }
 
@@ -445,23 +570,32 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
     case ID:
       return new Long(getId());
 
-    case CREATE_TIME:
-      return new Long(getCreateTime());
+    case FEATURE_ID:
+      return new Integer(getFeatureId());
 
-    case IP:
-      return getIp();
+    case RECORD_ID:
+      return new Long(getRecordId());
 
     case USER_ID:
       return new Integer(getUserId());
 
-    case TARGET:
-      return getTarget();
+    case IP:
+      return getIp();
 
     case ACTION:
-      return getAction();
+      return new Integer(getAction());
 
     case DESCRIPTION:
       return getDescription();
+
+    case CREATE_TIME:
+      return new Long(getCreateTime());
+
+    case UPDATE_TIME:
+      return new Long(getUpdateTime());
+
+    case STATUS:
+      return new Integer(getStatus());
 
     }
     throw new IllegalStateException();
@@ -476,18 +610,24 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
     switch (field) {
     case ID:
       return isSetId();
-    case CREATE_TIME:
-      return isSetCreateTime();
-    case IP:
-      return isSetIp();
+    case FEATURE_ID:
+      return isSetFeatureId();
+    case RECORD_ID:
+      return isSetRecordId();
     case USER_ID:
       return isSetUserId();
-    case TARGET:
-      return isSetTarget();
+    case IP:
+      return isSetIp();
     case ACTION:
       return isSetAction();
     case DESCRIPTION:
       return isSetDescription();
+    case CREATE_TIME:
+      return isSetCreateTime();
+    case UPDATE_TIME:
+      return isSetUpdateTime();
+    case STATUS:
+      return isSetStatus();
     }
     throw new IllegalStateException();
   }
@@ -514,21 +654,21 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
         return false;
     }
 
-    boolean this_present_createTime = true;
-    boolean that_present_createTime = true;
-    if (this_present_createTime || that_present_createTime) {
-      if (!(this_present_createTime && that_present_createTime))
+    boolean this_present_featureId = true;
+    boolean that_present_featureId = true;
+    if (this_present_featureId || that_present_featureId) {
+      if (!(this_present_featureId && that_present_featureId))
         return false;
-      if (this.createTime != that.createTime)
+      if (this.featureId != that.featureId)
         return false;
     }
 
-    boolean this_present_ip = true && this.isSetIp();
-    boolean that_present_ip = true && that.isSetIp();
-    if (this_present_ip || that_present_ip) {
-      if (!(this_present_ip && that_present_ip))
+    boolean this_present_recordId = true;
+    boolean that_present_recordId = true;
+    if (this_present_recordId || that_present_recordId) {
+      if (!(this_present_recordId && that_present_recordId))
         return false;
-      if (!this.ip.equals(that.ip))
+      if (this.recordId != that.recordId)
         return false;
     }
 
@@ -541,21 +681,21 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
         return false;
     }
 
-    boolean this_present_target = true && this.isSetTarget();
-    boolean that_present_target = true && that.isSetTarget();
-    if (this_present_target || that_present_target) {
-      if (!(this_present_target && that_present_target))
+    boolean this_present_ip = true && this.isSetIp();
+    boolean that_present_ip = true && that.isSetIp();
+    if (this_present_ip || that_present_ip) {
+      if (!(this_present_ip && that_present_ip))
         return false;
-      if (!this.target.equals(that.target))
+      if (!this.ip.equals(that.ip))
         return false;
     }
 
-    boolean this_present_action = true && this.isSetAction();
-    boolean that_present_action = true && that.isSetAction();
+    boolean this_present_action = true;
+    boolean that_present_action = true;
     if (this_present_action || that_present_action) {
       if (!(this_present_action && that_present_action))
         return false;
-      if (!this.action.equals(that.action))
+      if (this.action != that.action)
         return false;
     }
 
@@ -565,6 +705,33 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
       if (!(this_present_description && that_present_description))
         return false;
       if (!this.description.equals(that.description))
+        return false;
+    }
+
+    boolean this_present_createTime = true;
+    boolean that_present_createTime = true;
+    if (this_present_createTime || that_present_createTime) {
+      if (!(this_present_createTime && that_present_createTime))
+        return false;
+      if (this.createTime != that.createTime)
+        return false;
+    }
+
+    boolean this_present_updateTime = true;
+    boolean that_present_updateTime = true;
+    if (this_present_updateTime || that_present_updateTime) {
+      if (!(this_present_updateTime && that_present_updateTime))
+        return false;
+      if (this.updateTime != that.updateTime)
+        return false;
+    }
+
+    boolean this_present_status = true;
+    boolean that_present_status = true;
+    if (this_present_status || that_present_status) {
+      if (!(this_present_status && that_present_status))
+        return false;
+      if (this.status != that.status)
         return false;
     }
 
@@ -594,22 +761,22 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
         return lastComparison;
       }
     }
-    lastComparison = Boolean.valueOf(isSetCreateTime()).compareTo(typedOther.isSetCreateTime());
+    lastComparison = Boolean.valueOf(isSetFeatureId()).compareTo(typedOther.isSetFeatureId());
     if (lastComparison != 0) {
       return lastComparison;
     }
-    if (isSetCreateTime()) {
-      lastComparison = TBaseHelper.compareTo(this.createTime, typedOther.createTime);
+    if (isSetFeatureId()) {
+      lastComparison = TBaseHelper.compareTo(this.featureId, typedOther.featureId);
       if (lastComparison != 0) {
         return lastComparison;
       }
     }
-    lastComparison = Boolean.valueOf(isSetIp()).compareTo(typedOther.isSetIp());
+    lastComparison = Boolean.valueOf(isSetRecordId()).compareTo(typedOther.isSetRecordId());
     if (lastComparison != 0) {
       return lastComparison;
     }
-    if (isSetIp()) {
-      lastComparison = TBaseHelper.compareTo(this.ip, typedOther.ip);
+    if (isSetRecordId()) {
+      lastComparison = TBaseHelper.compareTo(this.recordId, typedOther.recordId);
       if (lastComparison != 0) {
         return lastComparison;
       }
@@ -624,12 +791,12 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
         return lastComparison;
       }
     }
-    lastComparison = Boolean.valueOf(isSetTarget()).compareTo(typedOther.isSetTarget());
+    lastComparison = Boolean.valueOf(isSetIp()).compareTo(typedOther.isSetIp());
     if (lastComparison != 0) {
       return lastComparison;
     }
-    if (isSetTarget()) {
-      lastComparison = TBaseHelper.compareTo(this.target, typedOther.target);
+    if (isSetIp()) {
+      lastComparison = TBaseHelper.compareTo(this.ip, typedOther.ip);
       if (lastComparison != 0) {
         return lastComparison;
       }
@@ -650,6 +817,36 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
     }
     if (isSetDescription()) {
       lastComparison = TBaseHelper.compareTo(this.description, typedOther.description);
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+    }
+    lastComparison = Boolean.valueOf(isSetCreateTime()).compareTo(typedOther.isSetCreateTime());
+    if (lastComparison != 0) {
+      return lastComparison;
+    }
+    if (isSetCreateTime()) {
+      lastComparison = TBaseHelper.compareTo(this.createTime, typedOther.createTime);
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+    }
+    lastComparison = Boolean.valueOf(isSetUpdateTime()).compareTo(typedOther.isSetUpdateTime());
+    if (lastComparison != 0) {
+      return lastComparison;
+    }
+    if (isSetUpdateTime()) {
+      lastComparison = TBaseHelper.compareTo(this.updateTime, typedOther.updateTime);
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+    }
+    lastComparison = Boolean.valueOf(isSetStatus()).compareTo(typedOther.isSetStatus());
+    if (lastComparison != 0) {
+      return lastComparison;
+    }
+    if (isSetStatus()) {
+      lastComparison = TBaseHelper.compareTo(this.status, typedOther.status);
       if (lastComparison != 0) {
         return lastComparison;
       }
@@ -679,17 +876,18 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
             TProtocolUtil.skip(iprot, field.type);
           }
           break;
-        case 2: // CREATE_TIME
-          if (field.type == TType.I64) {
-            this.createTime = iprot.readI64();
-            setCreateTimeIsSet(true);
+        case 2: // FEATURE_ID
+          if (field.type == TType.I32) {
+            this.featureId = iprot.readI32();
+            setFeatureIdIsSet(true);
           } else { 
             TProtocolUtil.skip(iprot, field.type);
           }
           break;
-        case 3: // IP
-          if (field.type == TType.STRING) {
-            this.ip = iprot.readString();
+        case 3: // RECORD_ID
+          if (field.type == TType.I64) {
+            this.recordId = iprot.readI64();
+            setRecordIdIsSet(true);
           } else { 
             TProtocolUtil.skip(iprot, field.type);
           }
@@ -702,16 +900,17 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
             TProtocolUtil.skip(iprot, field.type);
           }
           break;
-        case 5: // TARGET
+        case 5: // IP
           if (field.type == TType.STRING) {
-            this.target = iprot.readString();
+            this.ip = iprot.readString();
           } else { 
             TProtocolUtil.skip(iprot, field.type);
           }
           break;
         case 6: // ACTION
-          if (field.type == TType.STRING) {
-            this.action = iprot.readString();
+          if (field.type == TType.I32) {
+            this.action = iprot.readI32();
+            setActionIsSet(true);
           } else { 
             TProtocolUtil.skip(iprot, field.type);
           }
@@ -719,6 +918,30 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
         case 7: // DESCRIPTION
           if (field.type == TType.STRING) {
             this.description = iprot.readString();
+          } else { 
+            TProtocolUtil.skip(iprot, field.type);
+          }
+          break;
+        case 8: // CREATE_TIME
+          if (field.type == TType.I64) {
+            this.createTime = iprot.readI64();
+            setCreateTimeIsSet(true);
+          } else { 
+            TProtocolUtil.skip(iprot, field.type);
+          }
+          break;
+        case 9: // UPDATE_TIME
+          if (field.type == TType.I64) {
+            this.updateTime = iprot.readI64();
+            setUpdateTimeIsSet(true);
+          } else { 
+            TProtocolUtil.skip(iprot, field.type);
+          }
+          break;
+        case 10: // STATUS
+          if (field.type == TType.I32) {
+            this.status = iprot.readI32();
+            setStatusIsSet(true);
           } else { 
             TProtocolUtil.skip(iprot, field.type);
           }
@@ -739,32 +962,37 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
     oprot.writeFieldBegin(ID_FIELD_DESC);
     oprot.writeI64(this.id);
     oprot.writeFieldEnd();
-    oprot.writeFieldBegin(CREATE_TIME_FIELD_DESC);
-    oprot.writeI64(this.createTime);
+    oprot.writeFieldBegin(FEATURE_ID_FIELD_DESC);
+    oprot.writeI32(this.featureId);
+    oprot.writeFieldEnd();
+    oprot.writeFieldBegin(RECORD_ID_FIELD_DESC);
+    oprot.writeI64(this.recordId);
+    oprot.writeFieldEnd();
+    oprot.writeFieldBegin(USER_ID_FIELD_DESC);
+    oprot.writeI32(this.userId);
     oprot.writeFieldEnd();
     if (this.ip != null) {
       oprot.writeFieldBegin(IP_FIELD_DESC);
       oprot.writeString(this.ip);
       oprot.writeFieldEnd();
     }
-    oprot.writeFieldBegin(USER_ID_FIELD_DESC);
-    oprot.writeI32(this.userId);
+    oprot.writeFieldBegin(ACTION_FIELD_DESC);
+    oprot.writeI32(this.action);
     oprot.writeFieldEnd();
-    if (this.target != null) {
-      oprot.writeFieldBegin(TARGET_FIELD_DESC);
-      oprot.writeString(this.target);
-      oprot.writeFieldEnd();
-    }
-    if (this.action != null) {
-      oprot.writeFieldBegin(ACTION_FIELD_DESC);
-      oprot.writeString(this.action);
-      oprot.writeFieldEnd();
-    }
     if (this.description != null) {
       oprot.writeFieldBegin(DESCRIPTION_FIELD_DESC);
       oprot.writeString(this.description);
       oprot.writeFieldEnd();
     }
+    oprot.writeFieldBegin(CREATE_TIME_FIELD_DESC);
+    oprot.writeI64(this.createTime);
+    oprot.writeFieldEnd();
+    oprot.writeFieldBegin(UPDATE_TIME_FIELD_DESC);
+    oprot.writeI64(this.updateTime);
+    oprot.writeFieldEnd();
+    oprot.writeFieldBegin(STATUS_FIELD_DESC);
+    oprot.writeI32(this.status);
+    oprot.writeFieldEnd();
     oprot.writeFieldStop();
     oprot.writeStructEnd();
   }
@@ -778,8 +1006,16 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
     sb.append(this.id);
     first = false;
     if (!first) sb.append(", ");
-    sb.append("createTime:");
-    sb.append(this.createTime);
+    sb.append("featureId:");
+    sb.append(this.featureId);
+    first = false;
+    if (!first) sb.append(", ");
+    sb.append("recordId:");
+    sb.append(this.recordId);
+    first = false;
+    if (!first) sb.append(", ");
+    sb.append("userId:");
+    sb.append(this.userId);
     first = false;
     if (!first) sb.append(", ");
     sb.append("ip:");
@@ -790,24 +1026,8 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
     }
     first = false;
     if (!first) sb.append(", ");
-    sb.append("userId:");
-    sb.append(this.userId);
-    first = false;
-    if (!first) sb.append(", ");
-    sb.append("target:");
-    if (this.target == null) {
-      sb.append("null");
-    } else {
-      sb.append(this.target);
-    }
-    first = false;
-    if (!first) sb.append(", ");
     sb.append("action:");
-    if (this.action == null) {
-      sb.append("null");
-    } else {
-      sb.append(this.action);
-    }
+    sb.append(this.action);
     first = false;
     if (!first) sb.append(", ");
     sb.append("description:");
@@ -816,6 +1036,18 @@ public class SystemLog implements TBase<SystemLog, SystemLog._Fields>, java.io.S
     } else {
       sb.append(this.description);
     }
+    first = false;
+    if (!first) sb.append(", ");
+    sb.append("createTime:");
+    sb.append(this.createTime);
+    first = false;
+    if (!first) sb.append(", ");
+    sb.append("updateTime:");
+    sb.append(this.updateTime);
+    first = false;
+    if (!first) sb.append(", ");
+    sb.append("status:");
+    sb.append(this.status);
     first = false;
     sb.append(")");
     return sb.toString();
